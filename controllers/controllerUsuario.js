@@ -63,7 +63,7 @@ module.exports = {
         });
         res.redirect('/home');
     },
-    async postCreate(req, res) {
+    async getCreateCrianca(req, res) {
         db.cadastroCrianca.create({
             nome: req.body.nome,
             nome_pai: req.body.nome_pai,

@@ -48,8 +48,8 @@ route.get("/usuarioEdit/:id", controllerUsuario.getEdit);
 route.post("/usuarioEdit", controllerUsuario.postEdit);
 route.get("/usuarioDeleteTela/:id", controllerUsuario.getAlert);
 route.get("/usuarioDelete/:id", controllerUsuario.getDelete);
-route.get("/cadastrarCrianca", controllerUsuario.getCreate);
-route.post("/cadastrarCrianca", controllerUsuario.postCreate)
+route.get("/cadastrarCrianca", controllerUsuario.getCreateCrianca);
+route.post("/cadastrarCrianca", controllerUsuario.postCreateCrianca)
 
 //Controller Animal
 //Animal-CRUD
