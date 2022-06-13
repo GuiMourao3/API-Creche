@@ -1,12 +1,15 @@
 const Sequelize = require('sequelize');
 const db = require('../config/db_sequelize');
+const path  =  require('path');
+
 const Diretor = require('../models_postgres/diretor');
-const  path  =  require('path');
+const VagasCreche = require('../models_postgres/vagasCreche');
 
 
-db.sequelize.sync({ force: true }).then(() => {
+/*db.sequelize.sync({ force: true }).then(() => {
     console.log('{ force: true }');
-});
+});*/
+
 module.exports = {
     async getLogout(req, res) {
         req.session.destroy();
@@ -25,7 +28,6 @@ module.exports = {
             }
         });
     },
-
 
     async getLogin(req, res) {
         // res.render('login_Diretor');
@@ -50,9 +52,25 @@ module.exports = {
             }
         });
     },
+    async getCreateVagas(req, res) {
+        res.render('diretor/vagasCreate');
+    },
+
+    async postCreateVagas(req, res) {
+        db.VagasCreche.create({
+            nomeCreche: req.body.nomeCreche,
+            diretorCreche: req.body.diretorCreche,
+            enderecoCreche: req.body.enderecoCreche,
+            contatoCreche: req.body.contatoCreche,
+            cepCreche: req.body.cepCreche,
+        });
+        res.redirect('/home');
+    },
+
     async getCreate(req, res) {
         res.render('diretor/diretorCreate');
     },
+
     async postCreate(req, res) {
         db.Diretor.create({
             login: req.body.login,
@@ -61,8 +79,6 @@ module.exports = {
             resposta_pergunta: req.body.resposta,
             turma: req.body.turma,
             turno: req.body.turno
-           
-
         });
         res.redirect('/home');
     },

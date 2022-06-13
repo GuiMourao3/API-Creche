@@ -4,7 +4,7 @@ const controllerAnimal = require('../controllers/controllerAnimal');
 const controllerAPI = require('../controllers/controllerAPI');
 const controllerProfessor = require('../controllers/controllerDiretor');
 const route = express.Router();
-//RRAAAAAAAAAAAAAAAAAAAAAALOOOOOOOOOOOUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+
 module.exports = route;
 
 const multer = require('multer');
@@ -48,12 +48,10 @@ route.get("/usuarioEdit/:id", controllerUsuario.getEdit);
 route.post("/usuarioEdit", controllerUsuario.postEdit);
 route.get("/usuarioDeleteTela/:id", controllerUsuario.getAlert);
 route.get("/usuarioDelete/:id", controllerUsuario.getDelete);
-route.get("/cadastrarCrianca", controllerUsuario.getCreateCrianca);
-route.post("/cadastrarCrianca", controllerUsuario.postCreateCrianca)
+//route.get("/cadastrarCrianca", controllerUsuario.getCreateCrianca);
+//route.post("/cadastrarCrianca", controllerUsuario.postCreateCrianca)
 
 //Controller Animal
-//Animal-CRUD
-
 route.get("/animalCreate", controllerAnimal.getCreate);
 route.post("/animalCreate", controllerAnimal.postCreate);
 route.get("/animalList", controllerAnimal.getList);
@@ -70,7 +68,11 @@ route.put('/api/animal/:id', controllerAPI.putAnimal);
 route.delete('/api/animal/:id', controllerAPI.deleteAnimal);
 route.get("/", (req, res) => { res.sendFile(path.join(__dirname + '../view/animalList')) });
 
-//Router_professor
+//Route Diretor
+route.get("/vagasCreate", controllerDiretor.getCreateVagas);
+route.post("/vagasCreate", controllerDiretor.postCreateVagas);
+
+route.get("/diretorCreate", controllerDiretor.getCreate);
 route.get("/diretorCreate", controllerDiretor.getCreate);
 route.post("/diretorCreate", controllerDiretor.postCreate);
 route.get("/usuarioList", controllerDiretor.getList);
@@ -80,6 +82,7 @@ route.post("/usuarioEdit", controllerDiretor.postEdit);
 route.get("/usuarioDeleteTela/:id", controllerDiretor.getAlert);
 route.get("/usuarioDelete/:id", controllerDiretor.getDelete);
 route.get("/logout", controllerDiretor.getLogout);
+
 
 //Controller Usuario teste
 
