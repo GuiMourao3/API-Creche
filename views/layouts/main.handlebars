@@ -30,33 +30,50 @@
       ​   
 
  <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
-        <a class="navbar-brand" href="/home">Livro de Animais</a>
+        <a class="navbar-brand" href="/home">Controle de Vagas</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Area dos Pais
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/usuarioCreate">Cadastrar Aluno</a>
+                        <a class="dropdown-item" href="/usuarioList">Matricular</a>
+                           <a class="dropdown-item" href="/usuarioList">Gerenciar Dados</a>
+                    </div>
+                </li>
+              
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                       Animais
+                       Area do Diretor
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/animalCreate">Cadastrar</a>
-                        <a class="dropdown-item" href="/animalList">Listar</a>
+                        <a class="dropdown-item" href="/animalCreate"> Cadastrar Vagas </a>
+                        <a class="dropdown-item" href="/animalList">Alterar Dados</a>
+                          <a class="dropdown-item" href="/animalList">Listar</a>
                     </div>
                 </li>
+              
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Usuarios
+                        Area do Administrador
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/usuarioCreate">Cadastrar</a>
-                        <a class="dropdown-item" href="/usuarioList">Listar</a>
+                          <a class="dropdown-item" href="/usuarioCreate">Cadastrar Creche</a> 
+                          <a class="dropdown-item" href="/usuarioList">Validar Matriculas</a>
+                          <a class="dropdown-item" href="/usuarioList">Cadastrar Diretor</a>
+                          <a class="dropdown-item" href="/usuarioList">vagas</a>
                     </div>
                 </li>
+              
                 <li class="/logout">
                     <a class="nav-link" href="/logout">Logout</a>
                 </li>

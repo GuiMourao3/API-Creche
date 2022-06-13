@@ -8,7 +8,16 @@
     <input type="submit" value="Logar">
   {{!-- <a href="../diretor/login_Diretor">Sou  Professor</a> --}}
 </form>
-     <a href="login_Diretor"><button>sou professor</button></a>
+<div class="dropdown position-drop">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+    Selecione Perfil
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item"href="login_Diretor">Sou Professor</a>
+    <a class="dropdown-item" href="login_Diretor">Sou Diretor</a>
+    
+  </div>
+</div>
 <br>
 <script> function recuperarSenha() { window.location.href = "recuperarSenha/" + document.getElementById("login").value }</script>
 <button onclick=recuperarSenha()> Recupear Senha </button>

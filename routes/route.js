@@ -48,6 +48,8 @@ route.get("/usuarioEdit/:id", controllerUsuario.getEdit);
 route.post("/usuarioEdit", controllerUsuario.postEdit);
 route.get("/usuarioDeleteTela/:id", controllerUsuario.getAlert);
 route.get("/usuarioDelete/:id", controllerUsuario.getDelete);
+route.get("/cadastrarCrianca", controllerUsuario.getCreate);
+route.post("/cadastrarCrianca", controllerUsuario.postCreate)
 
 //Controller Animal
 //Animal-CRUD
@@ -79,7 +81,8 @@ route.get("/usuarioDeleteTela/:id", controllerDiretor.getAlert);
 route.get("/usuarioDelete/:id", controllerDiretor.getDelete);
 route.get("/logout", controllerDiretor.getLogout);
 
-//Controller Usuario
+//Controller Usuario teste
+
 //Usuario - Login e Recuperação de Senha
 route.get("/", controllerDiretor.getLogin);
 route.get("/login_Diretor", controllerDiretor.getLogin);
