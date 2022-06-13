@@ -1,8 +1,10 @@
 const Sequelize = require('sequelize');
 const db = require('../config/db_sequelize');
-const Usuario = require('../models_postgres/usuario');
+
 const  path  =  require('path');
-const cadastroCrianca = require('../models_postgres/cadastroCrianca');
+
+const Usuario = require('../models_postgres/usuario');
+const CadastroCrianca = require('../models_postgres/cadastroCrianca');
 
 
 /*db.sequelize.sync({ force: true }).then(() => {
@@ -58,19 +60,23 @@ module.exports = {
         db.Usuario.create({
             login: req.body.login,
             senha: req.body.senha,
-            pergunta_secreta: req.body.pergunta,
-            resposta_pergunta: req.body.resposta,
+            contato: req.body.contato,
+            cpf: req.body.cpf,
         });
         res.redirect('/home');
     },
     async getCreateCrianca(req, res) {
-        db.cadastroCrianca.create({
+        res.render('usuario/cadastrarCrianca');
+    },
+    async postCreateCrianca(req, res) {
+       db.CadastroCrianca.create({
             nome: req.body.nome,
             nome_pai: req.body.nome_pai,
             rg: req.body.rg,
             bairro: req.body.bairro,
             endereco: req.body.endereco,
         });
+        console.log("Entrou aqui")
         res.redirect('/home');
     },
     async getList(req, res) {

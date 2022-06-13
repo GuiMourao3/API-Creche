@@ -14,11 +14,11 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
-        pergunta_secreta: {
+        contato: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        resposta_pergunta: {
+        cpf: {
             type: Sequelize.STRING,
             allowNull: false
         }

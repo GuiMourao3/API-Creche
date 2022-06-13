@@ -4,7 +4,7 @@ const controllerAnimal = require('../controllers/controllerAnimal');
 const controllerAPI = require('../controllers/controllerAPI');
 const controllerProfessor = require('../controllers/controllerDiretor');
 const route = express.Router();
-//RRAAAAAAAAAAAAAAAAAAAAAALOOOOOOOOOOOUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+
 module.exports = route;
 
 const multer = require('multer');

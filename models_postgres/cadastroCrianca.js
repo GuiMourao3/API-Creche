@@ -1,4 +1,3 @@
-
 module.exports = (sequelize, Sequelize) => {
     const CadastroCrianca = sequelize.define('cadastrocrianca', {
         id: {
@@ -15,7 +14,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
-        Rg: {
+        rg: {
             type: Sequelize.STRING,
             allowNull: false
         },

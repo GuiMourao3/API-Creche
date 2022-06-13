@@ -35,15 +35,15 @@ app.use(    express.urlencoded({       extended:  true     }))
 app.listen(8081,  function() {    
     console.log("Servidor online")
 });
-var req = unirest.get('http://localhost:8081/api/animal').then((res) => {
+/*var req = unirest.get('http://localhost:8081/api/animal').then((res) => {
     var aux = res.body.data.animal;
     for (var i = 0; i < aux.length; i++)
         console.log(aux[i]._id + ' ' + aux[i].nome)
-});
-var req = unirest.get('http://localhost:8081/api/animal/60f73d323e5d092df8ddc0bc').then((res) => {
+});*/
+/*var req = unirest.get('http://localhost:8081/api/animal/60f73d323e5d092df8ddc0bc').then((res) => {
     console.log(res.body.data)
-});
-var req = unirest.post('http://localhost:8081/api/animal/')
+});*/
+/*var req = unirest.post('http://localhost:8081/api/animal/')
     .send({
         "nome": "nome",
         "proprietario": "proprietario ",
@@ -54,5 +54,5 @@ var req = unirest.post('http://localhost:8081/api/animal/')
     })
     .then((res) => {
         console.log(res.body.data)
-    });
+    });*/
 //nome, proprietario, endereco, tipo, raca, imagem

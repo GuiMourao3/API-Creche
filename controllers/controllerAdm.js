@@ -4,9 +4,9 @@ const Diretor = require('../models_postgres/diretor');
 const  path  =  require('path');
 
 
-db.sequelize.sync({ force: true }).then(() => {
+/*db.sequelize.sync({ force: true }).then(() => {
     console.log('{ force: true }');
-});
+});*/
 module.exports = {
     async getLogout(req, res) {
         req.session.destroy();
