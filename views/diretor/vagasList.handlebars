@@ -1,0 +1,13 @@
+<table border="1px">
+    <tr>
+        <td> Quantidade de Vagas </td>
+        <td> Turno </td>
+    </tr>
+    {{#each vagasCreches}}
+    <tr>
+        <td>{{quantidadeVagas}}</td>
+        <td>{{turno}}</td>
+        <td><a href="vagasEdit/{{id}}">Editar Dados</a></td>
+    </tr>
+    {{/each}}
+</table>

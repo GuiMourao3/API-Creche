@@ -6,26 +6,14 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false,
             primaryKey: true
         },
-        nomeCreche: {
-            type: Sequelize.STRING,
-            allowNull: true
+        quantidadeVagas: {
+            type: Sequelize.INTEGER,
+            allowNull: false
         },
-        diretorCreche: {
+        turno: {
             type: Sequelize.STRING,
-            allowNull: true
+            allowNull: false
         },
-        enderecoCreche: {
-            type: Sequelize.STRING,
-            allowNull: true
-        },
-        contatoCreche: {
-            type: Sequelize.STRING,
-            allowNull: true
-        },
-        cepCreche: {
-            type: Sequelize.STRING,
-            allowNull: true
-        }
     });
     return VagasCreche;
 }

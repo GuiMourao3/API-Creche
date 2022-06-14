@@ -4,6 +4,7 @@ const path  =  require('path');
 
 const Diretor = require('../models_postgres/diretor');
 const VagasCreche = require('../models_postgres/vagasCreche');
+const vagasCreche = require('../models_postgres/vagasCreche');
 
 
 db.sequelize.sync({ force: true }).then(() => {
@@ -58,11 +59,8 @@ module.exports = {
 
     async postCreateVagas(req, res) {
         db.VagasCreche.create({
-            nomeCreche: req.body.nomeCreche,
-            diretorCreche: req.body.diretorCreche,
-            enderecoCreche: req.body.enderecoCreche,
-            contatoCreche: req.body.contatoCreche,
-            cepCreche: req.body.cepCreche,
+            quantidadeVagas: req.body.quantidadeVagas,
+            turno: req.body.turno,
         });
         res.redirect('/home');
     },
@@ -87,6 +85,13 @@ module.exports = {
             res.render('usuario/usuarioList', { usuario: usuario.map(usuario => usuario.toJSON()) });
         });
     },
+    
+    async getListVagas(req, res) {
+        db.VagasCreche.findAll().then(vagasCreche => {
+            res.render('diretor/vagasList', { vagasCreche: vagasCreche.map(vagasCreche => vagasCreche.toJSON()) });
+        });
+    },
+    
     async getEdit(req, res) {
         await Usuario.findOne({ id: req.params.id }).then((teste) => {
             res.render('usuario/usuarioEdit', {
