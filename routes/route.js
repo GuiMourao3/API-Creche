@@ -2,13 +2,14 @@ const express = require('express');
 const controllerUsuario = require('../controllers/controllerUsuario');
 const controllerAnimal = require('../controllers/controllerAnimal');
 const controllerAPI = require('../controllers/controllerAPI');
-const controllerProfessor = require('../controllers/controllerDiretor');
+const controllerDiretor = require('../controllers/controllerDiretor');
+const controllerAdministrador = require ('../controllers/controllerAdministrador');
 const route = express.Router();
 
 module.exports = route;
 
 const multer = require('multer');
-const controllerDiretor = require('../controllers/controllerDiretor');
+
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -92,3 +93,20 @@ route.get("/", controllerDiretor.getLogin);
 route.get("/login_Diretor", controllerDiretor.getLogin);
 ///route.get("/recuperarSenha/:login", controllerUsuario.getRecuperarSenha);
 //route.post("/recuperarSenha", controllerUsuario.postRecuperarSenha);
+
+
+//Route Administrador
+route.get("/vagasCreate", controllerAdministrador.getCreateVagas);
+route.get("/vagasList", controllerAdministrador.getListVagas);
+route.post("/vagasCreate", controllerAdministrador.postCreateVagas);
+
+route.get("/admCreate", controllerAdministrador.getCreate);
+route.get("/admCreate", controllerAdministrador.getCreate);
+route.post("/diretorCreate", controllerAdministrador.postCreate);
+route.get("/usuarioList", controllerAdministrador.getList);
+route.get("/usuarioList", controllerAdministrador.getList);
+route.get("/usuarioEdit/:id", controllerAdministrador.getEdit);
+route.post("/usuarioEdit", controllerAdministrador.postEdit);
+route.get("/usuarioDeleteTela/:id", controllerAdministrador.getAlert);
+route.get("/usuarioDelete/:id", controllerAdministrador.getDelete);
+route.get("/logout", controllerAdministrador.getLogout);

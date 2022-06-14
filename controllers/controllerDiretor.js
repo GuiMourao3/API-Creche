@@ -4,7 +4,7 @@ const path  =  require('path');
 
 const Diretor = require('../models_postgres/diretor');
 const VagasCreche = require('../models_postgres/vagasCreche');
-const vagasCreche = require('../models_postgres/vagasCreche');
+
 
 
 db.sequelize.sync({ force: true }).then(() => {

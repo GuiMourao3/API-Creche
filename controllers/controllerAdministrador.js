@@ -1,12 +1,15 @@
 const Sequelize = require('sequelize');
 const db = require('../config/db_sequelize');
-const Diretor = require('../models_postgres/diretor');
-const  path  =  require('path');
+const Administrador = require('../models_postgres/administrador');
+const path  =  require('path');
 
 
-/*db.sequelize.sync({ force: true }).then(() => {
+
+/*
+db.sequelize.sync({ force: true }).then(() => {
     console.log('{ force: true }');
 });*/
+
 module.exports = {
     async getLogout(req, res) {
         req.session.destroy();
@@ -25,7 +28,6 @@ module.exports = {
             }
         });
     },
-
 
     async getLogin(req, res) {
         // res.render('login_Diretor');
@@ -50,9 +52,22 @@ module.exports = {
             }
         });
     },
+    async getCreateVagas(req, res) {
+        res.render('diretor/vagasCreate');
+    },
+
+    async postCreateVagas(req, res) {
+        db.VagasCreche.create({
+            quantidadeVagas: req.body.quantidadeVagas,
+            turno: req.body.turno,
+        });
+        res.redirect('/home');
+    },
+
     async getCreate(req, res) {
         res.render('diretor/diretorCreate');
     },
+
     async postCreate(req, res) {
         db.Diretor.create({
             login: req.body.login,
@@ -61,8 +76,6 @@ module.exports = {
             resposta_pergunta: req.body.resposta,
             turma: req.body.turma,
             turno: req.body.turno
-           
-
         });
         res.redirect('/home');
     },
@@ -71,6 +84,13 @@ module.exports = {
             res.render('usuario/usuarioList', { usuario: usuario.map(usuario => usuario.toJSON()) });
         });
     },
+    
+    async getListVagas(req, res) {
+        db.VagasCreche.findAll().then(vagasCreche => {
+            res.render('diretor/vagasList', { vagasCreche: vagasCreche.map(vagasCreche => vagasCreche.toJSON()) });
+        });
+    },
+    
     async getEdit(req, res) {
         await Usuario.findOne({ id: req.params.id }).then((teste) => {
             res.render('usuario/usuarioEdit', {
