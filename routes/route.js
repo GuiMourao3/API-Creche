@@ -73,6 +73,7 @@ route.get("/", (req, res) => { res.sendFile(path.join(__dirname + '../view/anima
 route.get("/vagasCreate", controllerDiretor.getCreateVagas);
 route.get("/vagasList", controllerDiretor.getListVagas);
 route.post("/vagasCreate", controllerDiretor.postCreateVagas);
+route.get("/vagasEdit", controllerDiretor.getEditVagas);
 
 route.get("/diretorCreate", controllerDiretor.getCreate);
 route.get("/diretorCreate", controllerDiretor.getCreate);

@@ -2,11 +2,14 @@
     <tr>
         <td> Quantidade de Vagas </td>
         <td> Turno </td>
+        <td> Turma </td>
+        <td> Editar </td>
     </tr>
     {{#each vagasCreches}}
     <tr>
         <td>{{quantidadeVagas}}</td>
         <td>{{turno}}</td>
+        <td>{{turma}}</td>
         <td><a href="vagasEdit/{{id}}">Editar Dados</a></td>
     </tr>
     {{/each}}

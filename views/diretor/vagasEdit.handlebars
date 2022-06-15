@@ -1,25 +1,13 @@
-<form action="/vagasEdit" method="POST" enctype="multipart/formdata">
-    <input type="hidden" name="id" value="{{animal._id}}">
-
-    <p>Nome: <input type="text" name="nome" id="nomeanimal"
-    value="{{animal.nome}}"></p>
-
-    <p>Proprietario:<input type="text" name="proprietario" id="nomeproprietario"
-    value="{{animal.proprietario}}"></p> 
-
-    <p>Endereco:<input type="text" name="endereco" id="endereco"
-    value="{{animal.endereco}}"></p> 
-
-    <p> Tipo:  <input type="tipo"  id="tipo"
-    name="tipo"
-    value="{{animal.tipo}}"></p>
-
-    <p> Raca: <input type="teste"  id="raca"
-    name="raca"
-    value="{{animal.raca}}"></p> 
-    <p>Imagem do Anima:</p>
-    <input type="file" name="{{animal.imagem}}" >
-
-    <br><br>
-    <input type="submit" value="Editar">
-</form>
+<!DOCTYPE html>
+<html>
+    <head> </head>
+    <body>
+        <form action="/vagasEdit" method="post">
+            <input type="hidden" name="id" value="{{vagasCreches.id}}">
+            <p> Quantidade de Vagas: <input type="text" name="quantidadeVagas" value="{{vagasCreches.quantidadeVagas}}"> </p>
+            <p> Turno: <input type="text" name="turno" value="{{vagasCreches.turno}}"> </p>
+            <p> Turma: <input type="text" name="turma" value="{{vagasCreches.turma}}"> </p>
+            <input type="submit" value="Salvar">
+        </form>
+    </body>
+</html>

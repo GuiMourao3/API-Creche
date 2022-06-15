@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 const db = require('../config/db_sequelize');
 const path  =  require('path');
-
 const Diretor = require('../models_postgres/diretor');
 const VagasCreche = require('../models_postgres/vagasCreche');
+const { VagasCreches } = require('../config/db_sequelize');
 
 
 
@@ -58,11 +58,26 @@ module.exports = {
     },
 
     async postCreateVagas(req, res) {
-        db.VagasCreche.create({
+        db.VagasCreches.create({
             quantidadeVagas: req.body.quantidadeVagas,
             turno: req.body.turno,
+            turma: req.body.turma,
         });
         res.redirect('/home');
+    },
+    
+    async getListVagas(req, res) {
+        db.VagasCreches.findAll().then(vagasCreches => {
+            res.render('diretor/vagasList', { vagasCreches: vagasCreches.map(vagasCreches => vagasCreches.toJSON()) });
+        });
+    },
+
+    async getEditVagas(req, res) {
+        await VagasCreches.findOne({ id: req.params.id }).then((teste) => {
+            res.render('diretor/vagasEdit', {
+                teste: teste.toJSON()
+            });
+        });
     },
 
     async getCreate(req, res) {
@@ -86,12 +101,6 @@ module.exports = {
         });
     },
     
-    async getListVagas(req, res) {
-        db.VagasCreche.findAll().then(vagasCreche => {
-            res.render('diretor/vagasList', { vagasCreche: vagasCreche.map(vagasCreche => vagasCreche.toJSON()) });
-        });
-    },
-    
     async getEdit(req, res) {
         await Usuario.findOne({ id: req.params.id }).then((teste) => {
             res.render('usuario/usuarioEdit', {
@@ -99,6 +108,7 @@ module.exports = {
             });
         });
     },
+
     async postEdit(req, res) {
         await Usuario.update({
             login: req.params.login,

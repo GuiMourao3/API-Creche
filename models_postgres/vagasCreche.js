@@ -14,6 +14,10 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
+        turma: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
     });
     return VagasCreche;
 }
