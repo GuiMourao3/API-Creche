@@ -2,11 +2,8 @@ const Sequelize = require('sequelize');
 const db = require('../config/db_sequelize');
 const path  =  require('path');
 const Administrador = require('../models_postgres/administrador');
-<<<<<<< HEAD
 const Creches = require ('../models_postgres/creches');
-
-=======
->>>>>>> 17c74dce4bd9da29526d62c2cd180d8c9780f4b8
+const Diretor = require ('../models_postgres/diretor');
 
 /*db.sequelize.sync({ force: true }).then(() => {
     console.log('{ force: true }');
@@ -66,7 +63,6 @@ module.exports = {
             rg: req.body.rg
         });
         res.redirect('/home');
-<<<<<<< HEAD
     },
     async getCreateCreche(req, res){
         res.render('administrador/crecheCreate');
@@ -82,10 +78,28 @@ module.exports = {
         });
         res.redirect('/home');
     },
-  
+    
+    async getCreateDiretor(req, res) {
+        res.render('administrador/diretorCreate');
+    },
 
-  
-=======
-    }, 
->>>>>>> 17c74dce4bd9da29526d62c2cd180d8c9780f4b8
+    async postCreateDiretor(req, res) {
+        db.Diretor.create({
+            loginDiretor: req.body.loginDiretor,
+            senhaDiretor: req.body.senhaDiretor,
+            nomeDiretor: req.body.nomeDiretor,
+            cidadeDiretor: req.body.cidadeDiretor,
+            bairroDiretor: req.body.bairroDiretor,
+            ruaDiretor: req.body.ruaDiretor
+        });
+        res.redirect('/home');
+    },
+
+    async getEditDiretor(req, res) {
+        await Diretor.findOne({ id: req.params.id }).then((teste) => {
+            res.render('administrador/diretorEdit', {
+                teste: teste.toJSON()
+            });
+        });
+    },
 }

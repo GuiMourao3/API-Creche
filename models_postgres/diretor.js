@@ -6,27 +6,27 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false,
             primaryKey: true
         },
-        login: {
+        loginDiretor: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        senha: {
+        senhaDiretor: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        nome: {
+        nomeDiretor: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        cidade: {
+        cidadeDiretor: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        bairro: {
+        bairroDiretor: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        rua: {
+        ruaDiretor: {
             type: Sequelize.STRING,
             allowNull: false
         }

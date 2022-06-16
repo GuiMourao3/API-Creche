@@ -77,7 +77,6 @@ route.get("/vagasEdit", controllerDiretor.getEditVagas);
 
 //Controller Diretor
 route.get("/diretorCreate", controllerDiretor.getCreate);
-route.get("/diretorCreate", controllerDiretor.getCreate);
 route.post("/diretorCreate", controllerDiretor.postCreate);
 route.get("/usuarioList", controllerDiretor.getList);
 route.get("/usuarioList", controllerDiretor.getList);
@@ -99,4 +98,7 @@ route.get("/loginAdm", controllerAdministrador.getLogin);
 route.get("/admCreate", controllerAdministrador.getCreateAdm);
 route.post("/admCreate", controllerAdministrador.postCreateAdm);
 route.get('/crecheCreate', controllerAdministrador.getCreateCreche);
-route.post('./crecheCreate', controllerAdministrador.postCreateCreche);
+route.post('/crecheCreate', controllerAdministrador.postCreateCreche);
+route.get("/diretorCreate", controllerAdministrador.getCreateDiretor);
+route.post("/diretorCreate", controllerAdministrador.postCreateDiretor);
+route.get("/diretorEdit", controllerAdministrador.getEditDiretor);
