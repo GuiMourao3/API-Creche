@@ -5,8 +5,6 @@ const Diretor = require('../models_postgres/diretor');
 const VagasCreche = require('../models_postgres/vagasCreche');
 const { VagasCreches } = require('../config/db_sequelize');
 
-
-
 db.sequelize.sync({ force: true }).then(() => {
     console.log('{ force: true }');
 });
@@ -16,6 +14,7 @@ module.exports = {
         req.session.destroy();
         res.redirect('/');
     },
+    
     async postLogin(req, res) {
 
         db.Diretor.findAll({ where: { login: req.body.login, senha: req.body.senha } }).then(diretor => {

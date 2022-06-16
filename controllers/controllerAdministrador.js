@@ -1,10 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require('../config/db_sequelize');
 const path  =  require('path');
-
 const Administrador = require('../models_postgres/administrador');
-
-
 
 /*db.sequelize.sync({ force: true }).then(() => {
     console.log('{ force: true }');
@@ -29,7 +26,6 @@ module.exports = {
         });
     },
 
-
     async getLogin(req, res) {
         res.render('administrador/loginAdm', { layout: 'noMenu.handlebars' });
     },
@@ -43,6 +39,7 @@ module.exports = {
             }
         });
     },
+
     async postRecuperarSenha(req, res) {
         db.Administrador.findAll({ where: { login: req.body.login, resposta_pergunta: req.body.resposta } }).then(administrador => {
             if (administrador.length > 0) {
@@ -52,6 +49,7 @@ module.exports = {
             }
         });
     },
+
     async getCreateAdm(req, res) {
         res.render('administrador/admCreate');
     },
@@ -63,7 +61,5 @@ module.exports = {
             rg: req.body.rg
         });
         res.redirect('/home');
-    },
-
-  
+    }, 
 }

@@ -69,12 +69,13 @@ route.put('/api/animal/:id', controllerAPI.putAnimal);
 route.delete('/api/animal/:id', controllerAPI.deleteAnimal);
 route.get("/", (req, res) => { res.sendFile(path.join(__dirname + '../view/animalList')) });
 
-//Route Diretor
+//Routes Vagas
 route.get("/vagasCreate", controllerDiretor.getCreateVagas);
 route.get("/vagasList", controllerDiretor.getListVagas);
 route.post("/vagasCreate", controllerDiretor.postCreateVagas);
 route.get("/vagasEdit", controllerDiretor.getEditVagas);
 
+//Controller Diretor
 route.get("/diretorCreate", controllerDiretor.getCreate);
 route.get("/diretorCreate", controllerDiretor.getCreate);
 route.post("/diretorCreate", controllerDiretor.postCreate);
@@ -86,15 +87,11 @@ route.get("/usuarioDeleteTela/:id", controllerDiretor.getAlert);
 route.get("/usuarioDelete/:id", controllerDiretor.getDelete);
 route.get("/logout", controllerDiretor.getLogout);
 
-
-//Controller Usuario teste
-
 //Usuario - Login e Recuperação de Senha
 route.get("/", controllerDiretor.getLogin);
 route.get("/login_Diretor", controllerDiretor.getLogin);
 ///route.get("/recuperarSenha/:login", controllerUsuario.getRecuperarSenha);
 //route.post("/recuperarSenha", controllerUsuario.postRecuperarSenha);
-
 
 //Route Administrador
 route.get("/", controllerAdministrador.getLogin);
