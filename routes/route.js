@@ -97,17 +97,7 @@ route.get("/login_Diretor", controllerDiretor.getLogin);
 
 
 //Route Administrador
-route.get("/vagasCreate", controllerAdministrador.getCreateVagas);
-route.get("/vagasList", controllerAdministrador.getListVagas);
-route.post("/vagasCreate", controllerAdministrador.postCreateVagas);
-
-route.get("/admCreate", controllerAdministrador.getCreate);
-route.get("/admCreate", controllerAdministrador.getCreate);
-route.post("/diretorCreate", controllerAdministrador.postCreate);
-route.get("/usuarioList", controllerAdministrador.getList);
-route.get("/usuarioList", controllerAdministrador.getList);
-route.get("/usuarioEdit/:id", controllerAdministrador.getEdit);
-route.post("/usuarioEdit", controllerAdministrador.postEdit);
-route.get("/usuarioDeleteTela/:id", controllerAdministrador.getAlert);
-route.get("/usuarioDelete/:id", controllerAdministrador.getDelete);
-route.get("/logout", controllerAdministrador.getLogout);
+route.get("/", controllerAdministrador.getLogin);
+route.get("/loginAdm", controllerAdministrador.getLogin);
+route.get("/admCreate", controllerAdministrador.getCreateAdm);
+route.post("/admCreate", controllerAdministrador.postCreateAdm);

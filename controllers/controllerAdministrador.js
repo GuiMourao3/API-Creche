@@ -1,12 +1,13 @@
 const Sequelize = require('sequelize');
 const db = require('../config/db_sequelize');
-const Administrador = require('../models_postgres/administrador');
 const path  =  require('path');
 
+const Administrador = require('../models_postgres/administrador');
+const administrador = require('../models_postgres/administrador');
 
 
-/*
-db.sequelize.sync({ force: true }).then(() => {
+
+/*db.sequelize.sync({ force: true }).then(() => {
     console.log('{ force: true }');
 });*/
 
@@ -17,8 +18,8 @@ module.exports = {
     },
     async postLogin(req, res) {
 
-        db.Diretor.findAll({ where: { login: req.body.login, senha: req.body.senha } }).then(diretor => {
-            if (diretor.length > 0) {
+        db.Administrador.findAll({ where: { login: req.body.login, senha: req.body.senha } }).then(administrador => {
+            if (administrador.length > 0) {
 
                 req.session.login = req.body.login;
                 res.redirect('/home');
@@ -29,100 +30,41 @@ module.exports = {
         });
     },
 
+
     async getLogin(req, res) {
-        // res.render('login_Diretor');
-        res.render('diretor/login_Diretor', { layout: 'noMenu.handlebars' });
+        res.render('aadministrador/loginAdm', { layout: 'noMenu.handlebars' });
     },
 
     async getRecuperarSenha(req, res) {
-        db.Diretor.findAll({ where: { login: req.params.login } }).then(diretor => {
-            if (diretor.length > 0) {
-                res.render('diretor/recuperarSenha', { layout: 'noMenu.handlebars', login: req.params.login, pergunta: usuario[0].pergunta_secreta });
+        db.Administrador.findAll({ where: { login: req.params.login } }).then(administrador => {
+            if (administrador.length > 0) {
+                res.render('administrador/recuperarSenha', { layout: 'noMenu.handlebars', login: req.params.login, pergunta: usuario[0].pergunta_secreta });
             } else {
                 res.redirect('/');
             }
         });
     },
     async postRecuperarSenha(req, res) {
-        db.Diretor.findAll({ where: { login: req.body.login, resposta_pergunta: req.body.resposta } }).then(diretor => {
-            if (diretor.length > 0) {
-                res.render('diretor/senhaRecuperada', { layout: 'noMenu.handlebars', senha: diretor[0].senha });
+        db.Administrador.findAll({ where: { login: req.body.login, resposta_pergunta: req.body.resposta } }).then(administrador => {
+            if (administrador.length > 0) {
+                res.render('administrador/senhaRecuperada', { layout: 'noMenu.handlebars', senha: usuario[0].senha });
             } else {
                 res.redirect('/');
             }
         });
     },
-    async getCreateVagas(req, res) {
-        res.render('diretor/vagasCreate');
+    async getCreateAdm(req, res) {
+        res.render('administrador/admCreate');
     },
 
-    async postCreateVagas(req, res) {
-        db.VagasCreche.create({
-            quantidadeVagas: req.body.quantidadeVagas,
-            turno: req.body.turno,
-        });
-        res.redirect('/home');
-    },
-
-    async getCreate(req, res) {
-        res.render('diretor/diretorCreate');
-    },
-
-    async postCreate(req, res) {
-        db.Diretor.create({
+    async postCreateAdm(req, res) {
+        db.Administrador.create({
             login: req.body.login,
             senha: req.body.senha,
-            pergunta_secreta: req.body.pergunta,
-            resposta_pergunta: req.body.resposta,
-            turma: req.body.turma,
-            turno: req.body.turno
+            rg: req.body.rg
         });
         res.redirect('/home');
     },
-    async getList(req, res) {
-        db.Usuario.findAll().then(usuario => {
-            res.render('usuario/usuarioList', { usuario: usuario.map(usuario => usuario.toJSON()) });
-        });
-    },
-    
-    async getListVagas(req, res) {
-        db.VagasCreche.findAll().then(vagasCreche => {
-            res.render('diretor/vagasList', { vagasCreche: vagasCreche.map(vagasCreche => vagasCreche.toJSON()) });
-        });
-    },
-    
-    async getEdit(req, res) {
-        await Usuario.findOne({ id: req.params.id }).then((teste) => {
-            res.render('usuario/usuarioEdit', {
-                teste: teste.toJSON()
-            });
-        });
-    },
-    async postEdit(req, res) {
-        await Usuario.update({
-            login: req.params.login,
-            senha: req.params.senha,
-            pergunta: req.params.pergunta,
-            resposta: req.params.resposta,
 
-        }, {
-            where: {
-
-                id: req.params.id,
-            },
-        });
-        db.Usuario.findByPK(req.prams.id).the((result) => res.json(result));
-
-    },
-
-    async getAlert(req, res) {
-
-        res.render('usuario/alertaDelete', { id: req.params.id });
-
-    },
-    async getDelete(req, res) {
-        db.Usuario.destroy({ where: { id: req.params.id } });
-
-        res.redirect('/usuarioList');
-    }
+  
 }
