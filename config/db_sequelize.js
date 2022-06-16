@@ -23,5 +23,10 @@ db.matriculas = require ('../models_postgres/matriculas') (sequelize, Sequelize 
 db.VagasCreches = require ('../models_postgres/vagasCreche') (sequelize, Sequelize);
 db.Administrador = require ('../models_postgres/administrador') (sequelize, Sequelize);
 
+//relacionamento de tabelas
+db.Diretor.belongsTo(db.Creches);
+db.Creches.hasMany(db.VagasCreches);
+db.CadastroCrianca.belongsTo(db.matriculas);
+db.Usuario.hasMany(db.CadastroCrianca);
 
 module.exports = db;

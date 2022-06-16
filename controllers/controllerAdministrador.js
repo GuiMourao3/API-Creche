@@ -71,7 +71,7 @@ module.exports = {
     
     async postCreateCreche(req, res) {
         db.Creches.create({
-                nome_Creche: req.body.Nome_Creche,
+                nome_Creche: req.body.nome_Creche,
                 bairro: req.body.bairro,
                 rua: req.body.rua,
                 cidade: req.body.cidade,
