@@ -101,3 +101,5 @@ route.get("/", controllerAdministrador.getLogin);
 route.get("/loginAdm", controllerAdministrador.getLogin);
 route.get("/admCreate", controllerAdministrador.getCreateAdm);
 route.post("/admCreate", controllerAdministrador.postCreateAdm);
+route.get('/crecheCreate', controllerAdministrador.getCreateCreche);
+route.post('./crecheCreate', controllerAdministrador.postCreateCreche);

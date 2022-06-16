@@ -6,24 +6,24 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false,
             primaryKey: true
         },
-        Nome_Creche: {
+        nome_Creche: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        Bairro: {
+        bairro: {
             type: Sequelize.STRING,
             allowNull: false
         },
         
-        Rua: {
+        rua: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        Cidade: {
+        cidade: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        Fone: {
+        fone: {
             type: Sequelize.STRING,
             allowNull: false
         }

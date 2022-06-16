@@ -3,7 +3,7 @@ const db = require('../config/db_sequelize');
 const path  =  require('path');
 
 const Administrador = require('../models_postgres/administrador');
-
+const Creches = require ('../models_postgres/creches');
 
 
 /*db.sequelize.sync({ force: true }).then(() => {
@@ -64,6 +64,21 @@ module.exports = {
         });
         res.redirect('/home');
     },
+    async getCreateCreche(req, res){
+        res.render('administrador/crecheCreate');
+    },
+    
+    async postCreateCreche(req, res) {
+        db.Creches.create({
+                nome_Creche: req.body.Nome_Creche,
+                bairro: req.body.bairro,
+                rua: req.body.rua,
+                cidade: req.body.cidade,
+                fone: req.body.fone
+        });
+        res.redirect('/home');
+    },
+  
 
   
 }
