@@ -50,8 +50,9 @@ route.post("/usuarioEdit", controllerUsuario.postEdit);
 route.get("/usuarioDeleteTela/:id", controllerUsuario.getAlert);
 route.get("/usuarioDelete/:id", controllerUsuario.getDelete);
 route.get("/cadastrarCrianca", controllerUsuario.getCreateCrianca);
-route.post("/cadastrarCrianca", controllerUsuario.postCreateCrianca)
-
+route.post("/cadastrarCrianca", controllerUsuario.postCreateCrianca);
+//route.get("/cadastrarCrianca", controllerUsuario.getCreateMatricula;
+//route.post("/cadastrarCrianca", controllerUsuario.postCreateMatricula);
 //Controller Animal
 route.get("/animalCreate", controllerAnimal.getCreate);
 route.post("/animalCreate", controllerAnimal.postCreate);
