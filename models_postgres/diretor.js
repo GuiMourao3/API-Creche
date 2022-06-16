@@ -10,19 +10,23 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
-        pergunta_secreta: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
         senha: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        turma: {
+        nome: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        turno: {
+        cidade: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        bairro: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
+        rua: {
             type: Sequelize.STRING,
             allowNull: false
         }
