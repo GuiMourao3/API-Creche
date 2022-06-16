@@ -1,16 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>  </head>
+    <body>
     <h1>Digite suas Crendiais</h1>
-<form action="/login_Diretor" method="post">
-    Login: <input type="text" name="login" id="login">
-    <br><br>
-    Senha: <input type="password" name="senha">
-    <br> <br>
-    <input type="submit" value="Logar">
-        
-</form>
-<br>
-<script> function recuperarSenha() { window.location.href = "recuperarSenha/" + document.getElementById("login").value }</script>
-<button onclick=recuperarSenha()> Recupear Senha </button>
-
-
-<script> function diretorCreate() { window.location.href = "DiretorCreate/" + document.getElementById("login").value }</script>
-<button onclick=diretorCreate()> Cadastra-se </button>
+        <form action="/login_Diretor" method="post">
+            Login: <input type="text" name="loginDiretor" id="loginDiretor">
+            <br><br>
+            Senha: <input type="password" name="senhaDiretor">
+            <br><br>
+            <input type="submit" value="Logar">
+        </form>
+    </body>
+</html>

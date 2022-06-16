@@ -61,10 +61,6 @@ module.exports = {
             rg: req.body.rg
         });
         res.redirect('/home');
-<<<<<<< HEAD
-=======
-
->>>>>>> 38f93242d341bdb5b0f440292516dabbc918bf94
     },
     async getCreateCreche(req, res){
         res.render('administrador/crecheCreate');
@@ -85,7 +81,6 @@ module.exports = {
         res.render('administrador/diretorCreate');
     },
 
-<<<<<<< HEAD
     async postCreateDiretor(req, res) {
         db.Diretor.create({
             loginDiretor: req.body.loginDiretor,
@@ -105,7 +100,4 @@ module.exports = {
             });
         });
     },
-=======
-
->>>>>>> 38f93242d341bdb5b0f440292516dabbc918bf94
 }

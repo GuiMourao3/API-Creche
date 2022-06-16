@@ -77,8 +77,8 @@ route.post("/vagasCreate", controllerDiretor.postCreateVagas);
 route.get("/vagasEdit", controllerDiretor.getEditVagas);
 
 //Controller Diretor
-route.get("/diretorCreate", controllerDiretor.getCreate);
-route.post("/diretorCreate", controllerDiretor.postCreate);
+//route.get("/diretorCreate", controllerDiretor.getCreate);
+//route.post("/diretorCreate", controllerDiretor.postCreate);
 route.get("/usuarioList", controllerDiretor.getList);
 route.get("/usuarioList", controllerDiretor.getList);
 route.get("/usuarioEdit/:id", controllerDiretor.getEdit);
@@ -90,6 +90,7 @@ route.get("/logout", controllerDiretor.getLogout);
 //Usuario - Login e Recuperação de Senha
 route.get("/", controllerDiretor.getLogin);
 route.get("/login_Diretor", controllerDiretor.getLogin);
+route.post("/login_Diretor", controllerDiretor.postLogin);
 ///route.get("/recuperarSenha/:login", controllerUsuario.getRecuperarSenha);
 //route.post("/recuperarSenha", controllerUsuario.postRecuperarSenha);
 
@@ -100,9 +101,6 @@ route.get("/admCreate", controllerAdministrador.getCreateAdm);
 route.post("/admCreate", controllerAdministrador.postCreateAdm);
 route.get('/crecheCreate', controllerAdministrador.getCreateCreche);
 route.post('/crecheCreate', controllerAdministrador.postCreateCreche);
-<<<<<<< HEAD
-=======
 route.get("/diretorCreate", controllerAdministrador.getCreateDiretor);
 route.post("/diretorCreate", controllerAdministrador.postCreateDiretor);
 route.get("/diretorEdit", controllerAdministrador.getEditDiretor);
->>>>>>> 0f7987af9a607704c7452abe9c6cff46cd59bc68

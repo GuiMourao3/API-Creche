@@ -16,21 +16,17 @@ module.exports = {
     },
     
     async postLogin(req, res) {
-
         db.Diretor.findAll({ where: { login: req.body.login, senha: req.body.senha } }).then(diretor => {
             if (diretor.length > 0) {
-
                 req.session.login = req.body.login;
                 res.redirect('/home');
             } else {
-
                 res.redirect('/');
             }
         });
     },
 
     async getLogin(req, res) {
-        // res.render('login_Diretor');
         res.render('diretor/login_Diretor', { layout: 'noMenu.handlebars' });
     },
 
@@ -78,7 +74,7 @@ module.exports = {
             });
         });
     },
-
+/*
     async getCreate(req, res) {
         res.render('diretor/diretorCreate');
     },
@@ -94,6 +90,7 @@ module.exports = {
         });
         res.redirect('/home');
     },
+    */
     async getList(req, res) {
         db.Usuario.findAll().then(usuario => {
             res.render('usuario/usuarioList', { usuario: usuario.map(usuario => usuario.toJSON()) });
