@@ -51,8 +51,8 @@ route.get("/usuarioDeleteTela/:id", controllerUsuario.getAlert);
 route.get("/usuarioDelete/:id", controllerUsuario.getDelete);
 route.get("/cadastrarCrianca", controllerUsuario.getCreateCrianca);
 route.post("/cadastrarCrianca", controllerUsuario.postCreateCrianca);
-//route.get("/cadastrarCrianca", controllerUsuario.getCreateMatricula;
-//route.post("/cadastrarCrianca", controllerUsuario.postCreateMatricula);
+route.get("/matriculaCreate", controllerUsuario.getCreateMatricula);
+route.post("/matriculaCreate", controllerUsuario.postCreateMatricula);
 //Controller Animal
 route.get("/animalCreate", controllerAnimal.getCreate);
 route.post("/animalCreate", controllerAnimal.postCreate);
@@ -94,15 +94,11 @@ route.get("/login_Diretor", controllerDiretor.getLogin);
 //route.post("/recuperarSenha", controllerUsuario.postRecuperarSenha);
 
 //Route Administrador
+
 route.get("/", controllerAdministrador.getLogin);
 route.get("/loginAdm", controllerAdministrador.getLogin);
 route.get("/admCreate", controllerAdministrador.getCreateAdm);
 route.post("/admCreate", controllerAdministrador.postCreateAdm);
 route.get('/crecheCreate', controllerAdministrador.getCreateCreche);
 route.post('/crecheCreate', controllerAdministrador.postCreateCreche);
-<<<<<<< HEAD
-=======
-route.get("/diretorCreate", controllerAdministrador.getCreateDiretor);
-route.post("/diretorCreate", controllerAdministrador.postCreateDiretor);
-route.get("/diretorEdit", controllerAdministrador.getEditDiretor);
->>>>>>> 0f7987af9a607704c7452abe9c6cff46cd59bc68
+//route.get("/diretorEdit", controllerAdministrador.getEditDiretor);

@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('teste', 'postgres', 'Cs123', {
+/*const sequelize = new Sequelize('teste', 'postgres', 'Cs123', {
     host: 'localhost',
     dialect: 'postgres'
-})
+})*/
 
 
 /*const sequelize = new Sequelize('teste', 'postgres', 'Cs123', {
@@ -11,10 +11,10 @@ const sequelize = new Sequelize('teste', 'postgres', 'Cs123', {
     dialect: 'postgres'
 })*/
 
-/*const sequelize = new Sequelize('Proj_Integrador', 'postgres', 'leandro1710', {
+const sequelize = new Sequelize('Proj_Integrador', 'postgres', 'leandro1710', {
     host: 'localhost',
     dialect: 'postgres'
-})*/
+})
 
 var db = {};
 db.Sequelize = Sequelize;

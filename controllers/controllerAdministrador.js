@@ -61,10 +61,6 @@ module.exports = {
             rg: req.body.rg
         });
         res.redirect('/home');
-<<<<<<< HEAD
-=======
-
->>>>>>> 38f93242d341bdb5b0f440292516dabbc918bf94
     },
     async getCreateCreche(req, res){
         res.render('administrador/crecheCreate');
@@ -84,28 +80,6 @@ module.exports = {
     async getCreateDiretor(req, res) {
         res.render('administrador/diretorCreate');
     },
+    
 
-<<<<<<< HEAD
-    async postCreateDiretor(req, res) {
-        db.Diretor.create({
-            loginDiretor: req.body.loginDiretor,
-            senhaDiretor: req.body.senhaDiretor,
-            nomeDiretor: req.body.nomeDiretor,
-            cidadeDiretor: req.body.cidadeDiretor,
-            bairroDiretor: req.body.bairroDiretor,
-            ruaDiretor: req.body.ruaDiretor
-        });
-        res.redirect('/home');
-    },
-
-    async getEditDiretor(req, res) {
-        await Diretor.findOne({ id: req.params.id }).then((teste) => {
-            res.render('administrador/diretorEdit', {
-                teste: teste.toJSON()
-            });
-        });
-    },
-=======
-
->>>>>>> 38f93242d341bdb5b0f440292516dabbc918bf94
 }

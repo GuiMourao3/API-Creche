@@ -5,6 +5,7 @@ const  path  =  require('path');
 
 const Usuario = require('../models_postgres/usuario');
 const CadastroCrianca = require('../models_postgres/cadastroCrianca');
+const Matricula = require('../models_postgres/matriculas');
 
 
 /*db.sequelize.sync({ force: true }).then(() => {
@@ -77,6 +78,22 @@ module.exports = {
             endereco: req.body.endereco,
         });
         console.log("Entrou aqui")
+        res.redirect('/home');
+    },
+    //----
+    async getCreateMatricula(req, res) {
+        res.render('usuario/matriculaCreate');
+    },
+    async postCreateMatricula(req, res) {
+       db.matriculas.create({
+            nome: req.body.nome,
+            nome_pai: req.body.nome_pai,
+            rg: req.body.rg,
+            bairro: req.body.bairro,
+            endereco: req.body.endereco,
+            fone: req.body.fone
+        });
+      
         res.redirect('/home');
     },
     async getList(req, res) {
