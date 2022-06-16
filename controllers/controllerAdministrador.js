@@ -3,7 +3,6 @@ const db = require('../config/db_sequelize');
 const path  =  require('path');
 
 const Administrador = require('../models_postgres/administrador');
-const administrador = require('../models_postgres/administrador');
 
 
 
@@ -32,7 +31,7 @@ module.exports = {
 
 
     async getLogin(req, res) {
-        res.render('aadministrador/loginAdm', { layout: 'noMenu.handlebars' });
+        res.render('administrador/loginAdm', { layout: 'noMenu.handlebars' });
     },
 
     async getRecuperarSenha(req, res) {
