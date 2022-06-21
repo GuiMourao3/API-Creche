@@ -1,21 +1,6 @@
 const Sequelize = require('sequelize');
 
-/*const sequelize = new Sequelize('teste', 'postgres', 'Cs123', {
-    host: 'localhost',
-    dialect: 'postgres'
-})*/
-
-<<<<<<< HEAD
-/*const sequelize = new Sequelize('Proj_Integrador', 'postgres', 'leandro1710', {
-=======
-
-/*const sequelize = new Sequelize('teste', 'postgres', 'Cs123', {
-    host: 'localhost',
-    dialect: 'postgres'
-})*/
-
-const sequelize = new Sequelize('Proj_Integrador', 'postgres', 'leandro1710', {
->>>>>>> c1139fc4f0cba756829aeb36f8650a858c5d20db
+const sequelize = new Sequelize('teste', 'postgres', 'Cs123', {
     host: 'localhost',
     dialect: 'postgres'
 })

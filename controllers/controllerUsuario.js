@@ -108,6 +108,7 @@ module.exports = {
             });
         });
     },
+    
     async postEdit(req, res) {
         await Usuario.update({
             login: req.params.login,

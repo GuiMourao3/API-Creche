@@ -74,7 +74,8 @@ route.get("/", (req, res) => { res.sendFile(path.join(__dirname + '../view/anima
 route.get("/vagasCreate", controllerDiretor.getCreateVagas);
 route.get("/vagasList", controllerDiretor.getListVagas);
 route.post("/vagasCreate", controllerDiretor.postCreateVagas);
-route.get("/vagasEdit", controllerDiretor.getEditVagas);
+route.get("/vagasEdit/:id", controllerDiretor.getEditVagas);
+route.post("/vagasEdit", controllerDiretor.postEditVagas);
 
 //Controller Diretor
 //route.get("/diretorCreate", controllerDiretor.getCreate);
@@ -102,10 +103,7 @@ route.get("/admCreate", controllerAdministrador.getCreateAdm);
 route.post("/admCreate", controllerAdministrador.postCreateAdm);
 route.get('/crecheCreate', controllerAdministrador.getCreateCreche);
 route.post('/crecheCreate', controllerAdministrador.postCreateCreche);
-<<<<<<< HEAD
 route.get("/diretorCreate", controllerAdministrador.getCreateDiretor);
 route.post("/diretorCreate", controllerAdministrador.postCreateDiretor);
 route.get("/diretorEdit", controllerAdministrador.getEditDiretor);
-=======
 //route.get("/diretorEdit", controllerAdministrador.getEditDiretor);
->>>>>>> c1139fc4f0cba756829aeb36f8650a858c5d20db

@@ -1,11 +1,15 @@
 const Sequelize = require('sequelize');
 const db = require('../config/db_sequelize');
-const path  =  require('path');
+const path = require('path');
 const Diretor = require('../models_postgres/diretor');
 const VagasCreche = require('../models_postgres/vagasCreche');
-const { VagasCreches } = require('../config/db_sequelize');
+const {
+    VagasCreches
+} = require('../config/db_sequelize');
 
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({
+    force: true
+}).then(() => {
     console.log('{ force: true }');
 });
 
@@ -14,9 +18,14 @@ module.exports = {
         req.session.destroy();
         res.redirect('/');
     },
-    
+
     async postLogin(req, res) {
-        db.Diretor.findAll({ where: { login: req.body.login, senha: req.body.senha } }).then(diretor => {
+        db.Diretor.findAll({
+            where: {
+                login: req.body.login,
+                senha: req.body.senha
+            }
+        }).then(diretor => {
             if (diretor.length > 0) {
                 req.session.login = req.body.login;
                 res.redirect('/home');
@@ -27,22 +36,40 @@ module.exports = {
     },
 
     async getLogin(req, res) {
-        res.render('diretor/login_Diretor', { layout: 'noMenu.handlebars' });
+        res.render('diretor/login_Diretor', {
+            layout: 'noMenu.handlebars'
+        });
     },
 
     async getRecuperarSenha(req, res) {
-        db.Diretor.findAll({ where: { login: req.params.login } }).then(diretor => {
+        db.Diretor.findAll({
+            where: {
+                login: req.params.login
+            }
+        }).then(diretor => {
             if (diretor.length > 0) {
-                res.render('diretor/recuperarSenha', { layout: 'noMenu.handlebars', login: req.params.login, pergunta: usuario[0].pergunta_secreta });
+                res.render('diretor/recuperarSenha', {
+                    layout: 'noMenu.handlebars',
+                    login: req.params.login,
+                    pergunta: usuario[0].pergunta_secreta
+                });
             } else {
                 res.redirect('/');
             }
         });
     },
     async postRecuperarSenha(req, res) {
-        db.Diretor.findAll({ where: { login: req.body.login, resposta_pergunta: req.body.resposta } }).then(diretor => {
+        db.Diretor.findAll({
+            where: {
+                login: req.body.login,
+                resposta_pergunta: req.body.resposta
+            }
+        }).then(diretor => {
             if (diretor.length > 0) {
-                res.render('diretor/senhaRecuperada', { layout: 'noMenu.handlebars', senha: diretor[0].senha });
+                res.render('diretor/senhaRecuperada', {
+                    layout: 'noMenu.handlebars',
+                    senha: diretor[0].senha
+                });
             } else {
                 res.redirect('/');
             }
@@ -60,45 +87,61 @@ module.exports = {
         });
         res.redirect('/home');
     },
-    
+
     async getListVagas(req, res) {
         db.VagasCreches.findAll().then(vagasCreches => {
-            res.render('diretor/vagasList', { vagasCreches: vagasCreches.map(vagasCreches => vagasCreches.toJSON()) });
+            res.render('diretor/vagasList', {
+                vagasCreches: vagasCreches.map(vagasCreches => vagasCreches.toJSON())
+            });
         });
     },
 
     async getEditVagas(req, res) {
-        await VagasCreches.findOne({ id: req.params.id }).then((teste) => {
+        await VagasCreches.findOne({
+            id: req.params.id
+        }).then((vagasCreches) => {
+
             res.render('diretor/vagasEdit', {
-                teste: teste.toJSON()
+                vagasCreches: vagasCreches.toJSON()
             });
         });
     },
-/*
-    async getCreate(req, res) {
-        res.render('diretor/diretorCreate');
+
+    async postEditVagas(req, res) {
+        const {quantidadeVagas, turno, turma} = req.body;
+        await VagasCreches.update({id:req.params.id}, {quantidadeVagas, turno, turma});
+        res.redirect('/vagasList');
     },
 
-    async postCreate(req, res) {
-        db.Diretor.create({
-            login: req.body.login,
-            senha: req.body.senha,
-            pergunta_secreta: req.body.pergunta,
-            resposta_pergunta: req.body.resposta,
-            turma: req.body.turma,
-            turno: req.body.turno
-        });
-        res.redirect('/home');
-    },
-    */
+    /*
+        async getCreate(req, res) {
+            res.render('diretor/diretorCreate');
+        },
+
+        async postCreate(req, res) {
+            db.Diretor.create({
+                login: req.body.login,
+                senha: req.body.senha,
+                pergunta_secreta: req.body.pergunta,
+                resposta_pergunta: req.body.resposta,
+                turma: req.body.turma,
+                turno: req.body.turno
+            });
+            res.redirect('/home');
+        },
+        */
     async getList(req, res) {
         db.Usuario.findAll().then(usuario => {
-            res.render('usuario/usuarioList', { usuario: usuario.map(usuario => usuario.toJSON()) });
+            res.render('usuario/usuarioList', {
+                usuario: usuario.map(usuario => usuario.toJSON())
+            });
         });
     },
-    
+
     async getEdit(req, res) {
-        await Usuario.findOne({ id: req.params.id }).then((teste) => {
+        await Usuario.findOne({
+            id: req.params.id
+        }).then((teste) => {
             res.render('usuario/usuarioEdit', {
                 teste: teste.toJSON()
             });
@@ -124,11 +167,17 @@ module.exports = {
 
     async getAlert(req, res) {
 
-        res.render('usuario/alertaDelete', { id: req.params.id });
+        res.render('usuario/alertaDelete', {
+            id: req.params.id
+        });
 
     },
     async getDelete(req, res) {
-        db.Usuario.destroy({ where: { id: req.params.id } });
+        db.Usuario.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
 
         res.redirect('/usuarioList');
     }

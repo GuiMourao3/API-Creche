@@ -81,8 +81,6 @@ module.exports = {
         res.render('administrador/diretorCreate');
     },
     
-
-<<<<<<< HEAD
     async postCreateDiretor(req, res) {
         db.Diretor.create({
             loginDiretor: req.body.loginDiretor,
@@ -102,6 +100,4 @@ module.exports = {
             });
         });
     },
-=======
->>>>>>> c1139fc4f0cba756829aeb36f8650a858c5d20db
 }
