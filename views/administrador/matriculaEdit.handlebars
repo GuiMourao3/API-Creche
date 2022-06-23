@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head> </head>
+    <body>
+        <form action="/matriculaEdit" method="post">
+            <input type="hidden" name="id" value="{{vagasCreches.id}}">
+            <p> Quantidade de Vagas: <input type="text" name="quantidadeVagas" value="{{vagasCreches.quantidadeVagas}}"> </p>
+            <p> Turno: <input type="text" name="turno" value="{{vagasCreches.turno}}"> </p>
+            <p> Turma: <input type="text" name="turma" value="{{vagasCreches.turma}}"> </p>
+            <input type="submit" value="Salvar">
+        </form>
+    </body>
+</html>

@@ -3,6 +3,7 @@ const db = require('../config/db_sequelize');
 const path  =  require('path');
 const Administrador = require('../models_postgres/administrador');
 const Matriculas = require ('../models_postgres/matriculas');
+const matriculas = require('../models_postgres/matriculas');
 
 
 /*db.sequelize.sync({ force: true }).then(() => {
@@ -103,12 +104,38 @@ module.exports = {
         });
     },
     async getListVagasAdm (req, res){
-        db.Matriculas.findAll().then(matriculas => {
+        db.matriculas.findAll().then(matriculas => {
             res.render('administrador/matriculaListAdm', {
                 matriculas: matriculas.map(matriculas => matriculas.toJSON())
             });
         });
 
+    },
+    async getEditMatricula( req, res){
+        await matriculas.findOne({
+            id: req.params.id
+        }).then((matriculas)=>{
+            res.render('administrador/matriculaEdit', {
+                matriculas: matriculas.toJSON() 
+            });
+        });
+    },
+    async postEditMatricula(req, res){
+        db.matriculas.update(req.body, {
+             where: {
+                id: req.body.id
+             }
+        },{
+            nome:req.body.nome,
+            nome_pai: req.body.nome_pai,
+            rg: req.body.rg,
+            bairro:  req.body.bairro,
+            endereco: req.body.endereco,
+            fone: req.body. fone,
+            comprovante_res: req.body.comprovante_res,
+            status:  req.body.status
 
+        })
+        res. redirect('/home');
     }
 }
