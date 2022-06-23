@@ -52,7 +52,9 @@ route.get("/usuarioDelete/:id", controllerUsuario.getDelete);
 route.get("/cadastrarCrianca", controllerUsuario.getCreateCrianca);
 route.post("/cadastrarCrianca", controllerUsuario.postCreateCrianca);
 route.get("/matriculaCreate", controllerUsuario.getCreateMatricula);
-route.post("/matriculaCreate", controllerUsuario.postCreateMatricula);
+route.post("/matriculaCreate",upload.single('comprovante_res'), controllerUsuario.postCreateMatricula);
+route.get("/matriculaList", controllerUsuario.getListMatricula);
+
 //Controller Animal
 route.get("/animalCreate", controllerAnimal.getCreate);
 route.post("/animalCreate", controllerAnimal.postCreate);
@@ -81,7 +83,6 @@ route.post("/vagasEdit", controllerDiretor.postEditVagas);
 //route.get("/diretorCreate", controllerDiretor.getCreate);
 //route.post("/diretorCreate", controllerDiretor.postCreate);
 route.get("/usuarioList", controllerDiretor.getList);
-route.get("/usuarioList", controllerDiretor.getList);
 route.get("/usuarioEdit/:id", controllerDiretor.getEdit);
 route.post("/usuarioEdit", controllerDiretor.postEdit);
 route.get("/usuarioDeleteTela/:id", controllerDiretor.getAlert);
@@ -106,4 +107,5 @@ route.post('/crecheCreate', controllerAdministrador.postCreateCreche);
 route.get("/diretorCreate", controllerAdministrador.getCreateDiretor);
 route.post("/diretorCreate", controllerAdministrador.postCreateDiretor);
 route.get("/diretorEdit", controllerAdministrador.getEditDiretor);
+route.get("/matriculaListAdm", controllerAdministrador.getListVagasAdm);
 //route.get("/diretorEdit", controllerAdministrador.getEditDiretor);

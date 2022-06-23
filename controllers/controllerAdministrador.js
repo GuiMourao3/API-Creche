@@ -2,6 +2,8 @@ const Sequelize = require('sequelize');
 const db = require('../config/db_sequelize');
 const path  =  require('path');
 const Administrador = require('../models_postgres/administrador');
+const Matriculas = require ('../models_postgres/matriculas');
+
 
 /*db.sequelize.sync({ force: true }).then(() => {
     console.log('{ force: true }');
@@ -100,4 +102,13 @@ module.exports = {
             });
         });
     },
+    async getListVagasAdm (req, res){
+        db.Matriculas.findAll().then(matriculas => {
+            res.render('administrador/matriculaListAdm', {
+                matriculas: matriculas.map(matriculas => matriculas.toJSON())
+            });
+        });
+
+
+    }
 }

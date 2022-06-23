@@ -108,9 +108,19 @@ module.exports = {
     },
 
     async postEditVagas(req, res) {
-        const {quantidadeVagas, turno, turma} = req.body;
-        await VagasCreches.update({id:req.params.id}, {quantidadeVagas, turno, turma});
-        res.redirect('/vagasList');
+  
+        db.VagasCreches.update(req.body, {
+              where: {
+                id: req.body.id
+              }
+            },{
+              
+                quantidadeVagas:req.body.quantidadeVagas,
+                 turno: req.body.turno,
+                 turma: req.body.turma,
+            })
+        
+            res.redirect('/home');
     },
 
     /*

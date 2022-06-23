@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const db = require('../config/db_sequelize');
-
+const { redirect } = require('express/lib/response');
 const  path  =  require('path');
 
 const Usuario = require('../models_postgres/usuario');
@@ -70,14 +70,17 @@ module.exports = {
         res.render('usuario/cadastrarCrianca');
     },
     async postCreateCrianca(req, res) {
+        const id_pai = req.params.Usuario.
+        console.log("ID pai:" + id_pai);
        db.CadastroCrianca.create({
             nome: req.body.nome,
             nome_pai: req.body.nome_pai,
             rg: req.body.rg,
             bairro: req.body.bairro,
             endereco: req.body.endereco,
+        
         });
-        console.log("Entrou aqui")
+       // console.log("Entrou aqui")
         res.redirect('/home');
     },
     //----
@@ -85,20 +88,33 @@ module.exports = {
         res.render('usuario/matriculaCreate');
     },
     async postCreateMatricula(req, res) {
-       db.matriculas.create({
+        const imagem =  req.body.imageName;
+        
+       
+         db.matriculas.create({
+       
             nome: req.body.nome,
             nome_pai: req.body.nome_pai,
             rg: req.body.rg,
             bairro: req.body.bairro,
             endereco: req.body.endereco,
-            fone: req.body.fone
+            fone: req.body.fone,
+            comprovante_res: req.body.nome,
+           
+           
+
         });
       
         res.redirect('/home');
     },
     async getList(req, res) {
-        db.Usuario.findAll().then(usuario => {
-            res.render('usuario/usuarioList', { usuario: usuario.map(usuario => usuario.toJSON()) });
+        db.matriculas.findAll().then(matriculas => {
+            res.render('usuario/usuarioList', { matriculas: matriculas.map(matriculas => matriculas.toJSON()) });
+        });
+    },
+    async getListMatricula(req, res) {
+        db.matriculas.findAll().then(matriculas => {
+            res.render('usuario/matriculaList', { matriculas: matriculas.map(matriculas => matriculas.toJSON()) });
         });
     },
     async getEdit(req, res) {

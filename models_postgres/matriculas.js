@@ -1,3 +1,6 @@
+const CadastroCrianca = require("./cadastroCrianca");
+
+
 module.exports = (sequelize, Sequelize) => {
     const Matriculas = sequelize.define('matriculas', {
         id: {
@@ -29,8 +32,31 @@ module.exports = (sequelize, Sequelize) => {
         fone: {
             type: Sequelize.STRING,
             allowNull: false
+        },
+        comprovante_res:{
+            type: Sequelize.STRING,
+            allowNull: true
+            
+        },
+        status:{
+            type: Sequelize.STRING,
+            defaultValue: 'Em analise',
+            allowNull: true
+            
+        },
+        createdAt:{
+            type: Sequelize.DATEONLY,
+            allowNull: true
+        },
+        Id_Crianca: {
+            type: Sequelize.INTEGER,
+            reference: {model: 'CadastroCrianca', key: 'id'}
         }
        
-    });
+    },
+   
+
+    );
+
     return Matriculas;
 }

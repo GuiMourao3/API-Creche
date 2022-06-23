@@ -3,7 +3,8 @@
     <head>  </head>
     <body>
         <h1>Matricular Aluno <i class="fas fa-arrow-alt-square-down    "></i></h1>
-        <form action="/matriculaCreate" method="post">  
+        <form action="/matriculaCreate" method="post"  enctype="multipart/form-data"> 
+         
             nome:  <input type="text" name="nome">
             <br> <br>
             Nome Pai:  <input type="text" name="nome_pai">
@@ -16,6 +17,9 @@
             <br> <br>
             fone:  <input type="text" name="fone">
             <br> <br>
+            Comprovante Residencia: <input type="file" name="comprovante_res">
+            <br>  <br>
+
             <input type="submit" value="Cadastrar">
          </form>
     </body>

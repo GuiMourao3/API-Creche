@@ -1,3 +1,4 @@
+const Usuario  = require('./usuario');
 module.exports = (sequelize, Sequelize) => {
     const CadastroCrianca = sequelize.define('cadastrocrianca', {
         id: {
@@ -25,7 +26,12 @@ module.exports = (sequelize, Sequelize) => {
         endereco: {
             type: Sequelize.STRING,
             allowNull: false
+        },
+        id_pai: {
+            type: Sequelize.INTEGER,
+            reference: {model: 'usuario', key: 'id'}
         }
     });
     return CadastroCrianca;
+
 }

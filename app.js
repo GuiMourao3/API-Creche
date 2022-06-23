@@ -8,6 +8,10 @@ const middlewares = require('./middlewares/middlewares');
 const unirest = require("unirest");
 const  app  =  express();
 var receitas = unirest.get('http://localhost:8081/receitas');
+const multer = require ('multer');
+const upload = multer ( {dest:'imagens/'});
+
+
 //console.log(animal);
 //const swaggerUI = require('swagger-ui-express');
 //const swaggerDocument = require('./Swagger.json');
