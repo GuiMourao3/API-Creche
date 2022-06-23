@@ -116,7 +116,7 @@ module.exports = {
         db.matriculas.findAll().then(matriculas => {
             res.render('usuario/matriculaList', { matriculas: matriculas.map(matriculas => matriculas.toJSON()) });
         });
-    },
+    }, 
     async getEdit(req, res) {
         await Usuario.findOne({ id: req.params.id }).then((teste) => {
             res.render('usuario/usuarioEdit', {
