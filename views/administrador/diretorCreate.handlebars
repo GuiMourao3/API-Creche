@@ -2,21 +2,39 @@
 <html>
     <head>  </head>
     <body>
-        <h2>Cadastro do Diretor</h2>
-        <form action="/diretorCreate" method="post">
-            Login: <input type="text" name="loginDiretor">
+        <form action="/diretorCreate" method="post" class="py-5 h-100">
+            <h2>Cadastro do Diretor</h2>
             <br><br>
-            Senha: <input type="password" name="senhaDiretor">
-            <br><br>
-            Nome: <input type="text" name="nomeDiretor">
-            <br><br>
-            Cidade: <input type="text" name="cidadeDiretor">
-            <br><br>
-            Bairro: <input type="text" name="bairroDiretor">
-            <br><br>
-            Rua: <input type="text" name="ruaDiretor">
-            <br><br>
-            <input type="submit" value="Cadastrar">
-        </form>
+                <div class="form-outline mb-4" style="width: 30%;">
+                    <input type="text" name="loginDiretor" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Login</label>
+                </div>
+
+                <div class="form-outline mb-4" style="width: 30%;">
+                    <input type="text" name="senhaDiretor" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Senha</label>
+                </div>
+
+                <div class="form-outline mb-4"  style="width: 30%;">
+                    <input type="text" name="nomeDiretor" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Nome</label>
+                </div>
+
+                <div class="form-outline mb-4"  style="width: 30%;">
+                    <input type="text" name="cidadeDiretor" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Cidade</label>
+                </div>
+
+                <div class="form-outline mb-4"  style="width: 30%;">
+                    <input type="text" name="bairroDiretor" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Bairro</label>
+                </div>
+
+                <div class="form-outline mb-4"  style="width: 30%;">
+                    <input type="text" name="ruaDiretor" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Rua</label>
+                </div>
+                <button type="submit" class="btn btn-secondary btn-block mb-4" value="Cadastrar" style="width: 30%;">Cadastrar</button>
+        </form>
     </body>
 </html>

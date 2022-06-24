@@ -1,16 +1,21 @@
-<table border="1px">
+<br><br>
+<table class="table table-hover" border="1px" style="width: 45%; text-align: center;">
+    <h1>Listar Vagas da Creche</h1>
+    <br>
+  <thead>
     <tr>
-        <td> Quantidade de Vagas </td>
-        <td> Turno </td>
-        <td> Turma </td>
-        <td> Editar </td>
+      <th scope="col">Quantidade de Vagas</th>
+      <th scope="col">Turno</th>
+      <th scope="col">Turma</th>
+      <th scope="col">Editar</th>
     </tr>
+  </thead>
     {{#each vagasCreches}}
     <tr>
         <td>{{quantidadeVagas}}</td>
         <td>{{turno}}</td>
         <td>{{turma}}</td>
-        <td><a href="vagasEdit/{{id}}">Editar Dados</a></td>
+        <td><a style="text-decoration:none" href="vagasEdit/{{id}} ">Editar Dados</a></td>
     </tr>
     {{/each}}
 </table>

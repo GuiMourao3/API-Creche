@@ -85,7 +85,7 @@ module.exports = {
             turno: req.body.turno,
             turma: req.body.turma,
         });
-        res.redirect('/home');
+        res.redirect('/vagasList');
     },
 
     async getListVagas(req, res) {

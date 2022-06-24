@@ -69,18 +69,15 @@ module.exports = {
     async getCreateCrianca(req, res) {
         res.render('usuario/cadastrarCrianca');
     },
+
     async postCreateCrianca(req, res) {
-        const id_pai = req.params.Usuario.
-        console.log("ID pai:" + id_pai);
        db.CadastroCrianca.create({
             nome: req.body.nome,
             nome_pai: req.body.nome_pai,
             rg: req.body.rg,
             bairro: req.body.bairro,
             endereco: req.body.endereco,
-        
         });
-       // console.log("Entrou aqui")
         res.redirect('/home');
     },
     //----
@@ -89,10 +86,7 @@ module.exports = {
     },
     async postCreateMatricula(req, res) {
         const imagem =  req.body.imageName;
-        
-       
          db.matriculas.create({
-       
             nome: req.body.nome,
             nome_pai: req.body.nome_pai,
             rg: req.body.rg,
@@ -100,9 +94,6 @@ module.exports = {
             endereco: req.body.endereco,
             fone: req.body.fone,
             comprovante_res: req.body.nome,
-           
-           
-
         });
       
         res.redirect('/home');

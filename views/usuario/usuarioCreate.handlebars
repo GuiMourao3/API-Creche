@@ -2,19 +2,29 @@
 <html>
     <head>  </head>
     <body>
-        <h1>Cadastro Responsavel Crianca</h1>
-        <form action="/usuarioCreate" method="post">  
-           Login:  <input type="text" name="login">
-            <br> <br>
-          Senha:  <input type="password" name="senha">
-            <br> <br>
-           Contato:  <input type="text" name="contato">
-            <br> <br>
-            Cpf:  <input type="text" name="cpf">
-            <br> <br>
-           
-            <br> <br>
-            <input type="submit" value="Cadastrar">
-         </form>
+        <form action="/usuarioCreate" method="post" class="py-5 h-100">
+            <h1>Cadastro Responsável Crianca</h1>
+            <br><br>
+                <div class="form-outline mb-4" style="width: 30%;">
+                    <input type="text" name="login" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Login</label>
+                </div>
+
+                <div class="form-outline mb-4"  style="width: 30%;">
+                    <input type="password" name="senha" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Senha</label>
+                </div>
+
+                <div class="form-outline mb-4"  style="width: 30%;">
+                    <input type="text" name="contato" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Contato</label>
+                </div>
+
+                <div class="form-outline mb-4" style="width: 30%;">
+                    <input type="text" name="cpf" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">CPF</label>
+                </div>
+                    <button type="submit" class="btn btn-secondary btn-block mb-4" value="Cadastrar" style="width: 30%;">Cadastrar</button>
+        </form>
     </body>
 </html>

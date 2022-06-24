@@ -1,18 +1,19 @@
-<table border="1px">
-
-        <h1>Validar Matriculas</h1>
+<br><br><br>
+<table class="table table-hover" border="1px" style="width: 45%; text-align: center;">
+  <thead>
     <tr>
-        <td> Codigo</td>
-        <td> Nome Crianca </td>
-        <td> Nome Pai</td>
-        <td> RG </td>
-        <td> Bairro</td>
-        <td> Endereco</td>
-        <td> Fone</td>
-        <td> Comprovante Residencia</td>
-        <td> Status</td>
-        <td> Data de Cadastro</td>
+        <th scope="col"> Codigo</td>
+        <th scope="col"> Nome Crianca </td>
+        <th scope="col"> Nome Pai</td>
+        <th scope="col"> RG </td>
+        <th scope="col"> Bairro</td>
+        <th scope="col"> Endereco</td>
+        <th scope="col"> Fone</td>
+        <th scope="col"> Comprovante Residencia</td>
+        <th scope="col"> Status</td>
+        <th scope="col"> Data de Cadastro</td>
     </tr>
+  </thead>
     {{#each matriculas}}
     <tr>
         <td>{{id}}</td>
@@ -25,7 +26,7 @@
         <td> <image width="50px" heigth="50px"  src="../uploads/{{comprovante_res}}.png"></td>
         <td>{{status}}</td>
         <td>{{createdAt}}</td>
-        <td>  <a href="matriculaEdit/{{id}}">Editar</a> </td>
+        <td> <a href="matriculaEdit/{{id}}">Editar</a> </td>
         <td> <a href="alertaDelete/{{id}}">Deletar</a> </td>
     </tr>
     {{/each}}

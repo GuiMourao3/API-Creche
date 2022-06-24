@@ -2,15 +2,24 @@
 <html>
     <head>  </head>
     <body>
-        <h1>Cadastro Vagas da Creche</h1>
-        <form action="/vagasCreate" method="post">  
-            Quantidade de Vagas: <input type="text" name="quantidadeVagas">​
-            <br> <br>​
-            Turno: <input type="text" name="turno">​
-            <br> <br>​
-            Turma: <input type="text" name="turma">​
-            <br> <br>​
-            <input type="submit" value="Cadastrar">
-        </form>
+        <form action="/vagasCreate" method="post" class="py-5 h-100">
+            <h1>Cadastro de Vagas da Creche</h1>
+            <br><br>
+                <div class="form-outline mb-4" style="width: 30%;">
+                    <input type="text" name="quantidadeVagas" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Quantidade de Vagas</label>
+                </div>
+
+                <div class="form-outline mb-4"  style="width: 30%;">
+                    <input type="text" name="turno" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Turno</label>
+                </div>
+
+                <div class="form-outline mb-4"  style="width: 30%;">
+                    <input type="text" name="turma" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Turma</label>
+                </div>
+                <button type="submit" class="btn btn-secondary btn-block mb-4" value="Cadastrar" style="width: 30%;">Cadastrar</button>
+        </form>
     </body>
 </html>

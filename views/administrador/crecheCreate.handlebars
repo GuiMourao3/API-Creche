@@ -2,20 +2,34 @@
 <html>
     <head>  </head>
     <body>
+        <form action="/crecheCreate" method="post" class="py-5 h-100">
             <h2>Cadastro da Creche</h2>
-        <form action="/crecheCreate" method="post">  
-            Nome Da Creche:  <input type="text" name="nome_Creche">
-            <br> <br>
-            bairro:  <input type="text" name="bairro">
-            <br> <br>
-            rua:  <input type="text" name="rua">
-             <br> <br>
-            cidade:  <input type="text" name="cidade">
-             <br> <br>
-             fone:  <input type="text" name="fone">
-
             <br><br>
-            <input type="submit" value="Cadastrar">
-         </form>
+                <div class="form-outline mb-4" style="width: 30%;">
+                    <input type="text" name="nome_Creche" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Nome da Creche</label>
+                </div>
+
+                <div class="form-outline mb-4"  style="width: 30%;">
+                    <input type="text" name="bairro" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Bairro</label>
+                </div>
+
+                <div class="form-outline mb-4"  style="width: 30%;">
+                    <input type="text" name="rua" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Rua</label>
+                </div>
+
+                <div class="form-outline mb-4"  style="width: 30%;">
+                    <input type="text" name="cidade" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Cidade</label>
+                </div>
+
+                <div class="form-outline mb-4"  style="width: 30%;">
+                    <input type="text" name="fone" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Telefone</label>
+                </div>
+                <button type="submit" class="btn btn-secondary btn-block mb-4" value="Cadastrar" style="width: 30%;">Cadastrar</button>
+        </form>
     </body>
 </html>
