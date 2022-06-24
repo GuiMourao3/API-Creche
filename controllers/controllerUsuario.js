@@ -86,7 +86,7 @@ module.exports = {
     },
     async postCreateMatricula(req, res) {
         const imagem =  req.body.imageName;
-         db.matriculas.create({
+         db.Matriculas.create({
             nome: req.body.nome,
             nome_pai: req.body.nome_pai,
             rg: req.body.rg,
@@ -99,12 +99,12 @@ module.exports = {
         res.redirect('/home');
     },
     async getList(req, res) {
-        db.matriculas.findAll().then(matriculas => {
+        db.Matriculas.findAll().then(matriculas => {
             res.render('usuario/usuarioList', { matriculas: matriculas.map(matriculas => matriculas.toJSON()) });
         });
     },
     async getListMatricula(req, res) {
-        db.matriculas.findAll().then(matriculas => {
+        db.Matriculas.findAll().then(matriculas => {
             res.render('usuario/matriculaList', { matriculas: matriculas.map(matriculas => matriculas.toJSON()) });
         });
     }, 

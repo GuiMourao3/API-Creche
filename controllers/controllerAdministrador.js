@@ -3,7 +3,7 @@ const db = require('../config/db_sequelize');
 const path  =  require('path');
 const Administrador = require('../models_postgres/administrador');
 const Matriculas = require ('../models_postgres/matriculas');
-const matriculas = require('../models_postgres/matriculas');
+
 
 
 /*db.sequelize.sync({ force: true }).then(() => {
@@ -104,7 +104,7 @@ module.exports = {
         });
     },
     async getListVagasAdm (req, res){
-        db.matriculas.findAll().then(matriculas => {
+        db.Matriculas.findAll().then(matriculas => {
             res.render('administrador/matriculaListAdm', {
                 matriculas: matriculas.map(matriculas => matriculas.toJSON())
             });
@@ -112,7 +112,7 @@ module.exports = {
 
     },
     async getEditMatricula( req, res){
-        await matriculas.findOne({
+        await Matriculas.findOne({
             id: req.params.id
         }).then((matriculas)=>{
             res.render('administrador/matriculaEdit', {
@@ -121,7 +121,7 @@ module.exports = {
         });
     },
     async postEditMatricula(req, res){
-        db.matriculas.update(req.body, {
+        db.Matriculas.update(req.body, {
              where: {
                 id: req.body.id
              }
