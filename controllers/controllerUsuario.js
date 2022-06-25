@@ -8,9 +8,9 @@ const CadastroCrianca = require('../models_postgres/cadastroCrianca');
 const Matricula = require('../models_postgres/matriculas');
 
 
-/*db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync({ force: true }).then(() => {
     console.log('{ force: true }');
-});*/
+});
 
 module.exports = {
     async getLogout(req, res) {
@@ -71,12 +71,14 @@ module.exports = {
     },
 
     async postCreateCrianca(req, res) {
+        console.log("id pai "+ req.U);
        db.CadastroCrianca.create({
             nome: req.body.nome,
             nome_pai: req.body.nome_pai,
             rg: req.body.rg,
             bairro: req.body.bairro,
             endereco: req.body.endereco,
+            
         });
         res.redirect('/home');
     },

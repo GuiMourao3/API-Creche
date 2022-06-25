@@ -5,6 +5,9 @@ const Administrador = require('../models_postgres/administrador');
 const Matriculas = require ('../models_postgres/matriculas');
 
 
+const {
+    Matricula
+} = require('../config/db_sequelize');
 
 /*db.sequelize.sync({ force: true }).then(() => {
     console.log('{ force: true }');
@@ -112,15 +115,19 @@ module.exports = {
 
     },
     async getEditMatricula( req, res){
+
+        console.log("Entrou no get");
         await Matriculas.findOne({
             id: req.params.id
-        }).then((matriculas)=>{
-            res.render('administrador/matriculaEdit', {
-                matriculas: matriculas.toJSON() 
+        }).then((matriculas) => {
+
+            res.render('administrador/matriculaEditAdm', {
+                matriculas: matriculas.toJSON()
             });
         });
     },
     async postEditMatricula(req, res){
+        console.log("Entrou no post");
         db.Matriculas.update(req.body, {
              where: {
                 id: req.body.id

@@ -108,6 +108,8 @@ route.get("/diretorCreate", controllerAdministrador.getCreateDiretor);
 route.post("/diretorCreate", controllerAdministrador.postCreateDiretor);
 route.get("/diretorEdit", controllerAdministrador.getEditDiretor);
 route.get("/matriculaListAdm", controllerAdministrador.getListVagasAdm);
-route.get("/matriculaEdit/:id", controllerAdministrador.getEditMatricula);
-route.post("/matriculaEdit", controllerAdministrador.postEditMatricula);
+
+route.get("/matriculaEditAdm/:id", controllerAdministrador.getEditMatricula);
+route.post("/matriculaEditAdm", controllerAdministrador.postEditMatricula);
+
 //route.get("/diretorEdit", controllerAdministrador.getEditDiretor);

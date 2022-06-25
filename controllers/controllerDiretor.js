@@ -7,11 +7,11 @@ const {
     VagasCreches
 } = require('../config/db_sequelize');
 
-db.sequelize.sync({
+/*db.sequelize.sync({
     force: true
 }).then(() => {
     console.log('{ force: true }');
-});
+});*/
 
 module.exports = {
     async getLogout(req, res) {

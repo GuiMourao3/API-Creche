@@ -27,11 +27,17 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
-        id_pai: {
+      
+        /*id_pai: {
             type: Sequelize.INTEGER,
             reference: {model: 'usuario', key: 'id'}
-        }
+        }*/
     });
+
+    CadastroCrianca.associate = function(models) {
+        CadastroCrianca.belongsTo(models.Usuarios, {foreignKey: 'id_pai', as: 'id'})
+      };
+    
     return CadastroCrianca;
 
 }
