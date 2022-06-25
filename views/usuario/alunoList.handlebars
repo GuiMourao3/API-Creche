@@ -1,0 +1,25 @@
+<br><br>
+<table class="table table-hover" border="1px" style="width: 45%; text-align: center;">
+    <h1>Lista dos Alunos para a Matrícula</h1>
+    <br>
+  <thead>
+    <tr>
+        <th scope="col">Nome</td>
+        <th scope="col">Nome Pai</td>
+        <th scope="col">RG</td>
+        <th scope="col">Bairro</td>
+        <th scope="col">Endereço</td>
+        <th scope="col">Creches</td>
+    </tr>
+  </thead>
+    {{#each cadastroCrianca}}
+    <tr>
+        <td>{{nome}}</td>
+        <td>{{nome_pai}}</td>
+        <td>{{rg}}</td>
+        <td>{{bairro}}</td>
+        <td>{{endereco}}</td>
+        <td><a style="text-decoration:none" href="/crecheList">Verificar Vagas</a></td>
+    </tr>
+    {{/each}}
+</table>

@@ -86,6 +86,18 @@ module.exports = {
     async getCreateMatricula(req, res) {
         res.render('usuario/matriculaCreate');
     },
+
+    async getCreateMatriculaNew(req, res) {
+        await db.CadastroCrianca.findOne({
+            id: req.body.id
+        }).then((cadastroCrianca) => {
+
+            res.render('usuario/matriculaCreate', {
+                cadastroCrianca: cadastroCrianca.toJSON()
+            });
+        });
+    },
+
     async postCreateMatricula(req, res) {
         const imagem =  req.body.imageName;
          db.Matriculas.create({
@@ -105,11 +117,21 @@ module.exports = {
             res.render('usuario/usuarioList', { matriculas: matriculas.map(matriculas => matriculas.toJSON()) });
         });
     },
+
     async getListMatricula(req, res) {
         db.Matriculas.findAll().then(matriculas => {
             res.render('usuario/matriculaList', { matriculas: matriculas.map(matriculas => matriculas.toJSON()) });
         });
     }, 
+
+    async getListAluno(req, res){
+            db.CadastroCrianca.findAll().then(cadastroCrianca => {
+                res.render('usuario/alunoList', {
+                    cadastroCrianca: cadastroCrianca.map(cadastroCrianca => cadastroCrianca.toJSON())
+                });
+            });
+        },
+
     async getEdit(req, res) {
         await Usuario.findOne({ id: req.params.id }).then((teste) => {
             res.render('usuario/usuarioEdit', {

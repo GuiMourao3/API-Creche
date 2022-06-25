@@ -1,16 +1,21 @@
-    <h1>Digite suas Crendiais de administrador</h1>
-<form action="/loginAdm" method="post">
-    Login: <input type="text" name="login" id="login">
-    <br><br> 
-    Senha: <input type="password" name="senha">
-    <br> <br>
-    <input type="submit" value="Logar">
-        
+<!DOCTYPE html>
+<html>
+    <head>  </head>
+    <body>
 </form>
-<br>
-<script> function recuperarSenha() { window.location.href = "recuperarSenha/" + document.getElementById("login").value }</script>
-<button onclick=recuperarSenha()> Recupear Senha </button>
+        <form action="/loginAdm" method="post" class="py-5 h-100">
+            <h1>Digite suas Credenciais</h1>
+            <br><br>
+                <div class="form-outline mb-4" style="width: 30%;">
+                    <input type="text" name="login" id="login" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Login</label>
+                </div>
 
-
-<script> function admCreate() { window.location.href = "admCreate/" + document.getElementById("login").value }</script>
-<button onclick=admCreate()> Cadastra-se </button>
+                <div class="form-outline mb-4"  style="width: 30%;">
+                    <input type="password" name="senha" class="form-control" style="text-align: center;"/>
+                    <label class="form-label">Senha</label>
+                </div>
+                <button type="submit" class="btn btn-secondary btn-block mb-4" value="Logar" style="width: 30%;">Logar</button>
+        </form>
+    </body>
+</html>

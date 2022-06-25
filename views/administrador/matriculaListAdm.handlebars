@@ -12,6 +12,7 @@
         <th scope="col"> Comprovante Residencia</td>
         <th scope="col"> Status</td>
         <th scope="col"> Data de Cadastro</td>
+        <th scope="col"> Editar</td>
     </tr>
   </thead>
     {{#each matriculas}}
@@ -27,7 +28,6 @@
         <td>{{status}}</td>
         <td>{{createdAt}}</td>
         <td> <a href="matriculaEditAdm/{{id}}">Editar</a> </td>
-        <td> <a href="alertaDelete/{{id}}">Deletar</a> </td>
     </tr>
     {{/each}}
 </table>

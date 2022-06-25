@@ -24,16 +24,20 @@
               </form>
 
               <br><br>
-              <script> function recuperarSenha() { window.location.href = "recuperarSenha/" + document.getElementById("login").value }</script>
-              <button onclick=recuperarSenha() type="button" class="btn btn-outline-light btn-lg">Recuperar Senha</button>
-              
+            
               <script> function usuarioCreate() { window.location.href = "usuarioCreate/" + document.getElementById("login").value }</script>
               <button onclick=usuarioCreate() type="button" class="btn btn-outline-light btn-lg">Cadastrar-se</button>
+              <br><br><br>
 
+              <div class="dropdown position-drop">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
+                  Selecione Perfil
+                </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item"href="loginAdm">Sou Administrador</a>
-                <a class="dropdown-item" href="login_Diretor">Sou Diretor</a>
+                  <a class="dropdown-item"href="loginAdm">Sou Administrador</a>
+                  <a class="dropdown-item" href="login_Diretor">Sou Diretor</a>
                 </div>
+              </div>
               </div>
             </div>
           </div>

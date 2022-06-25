@@ -3,7 +3,7 @@ const db = require('../config/db_sequelize');
 const path  =  require('path');
 const Administrador = require('../models_postgres/administrador');
 const Matriculas = require ('../models_postgres/matriculas');
-
+const Creches = require ('../models_postgres/creches');
 
 const {
     Matricula
@@ -86,6 +86,14 @@ module.exports = {
     async getCreateDiretor(req, res) {
         res.render('administrador/diretorCreate');
     },
+
+    async getListCreche(req, res) {
+       db.Creches.findAll().then(creches => {
+            res.render('administrador/crecheList', {
+                creches: creches.map(creches => creches.toJSON())
+            });
+        });
+    },
     
     async postCreateDiretor(req, res) {
         db.Diretor.create({
@@ -112,15 +120,9 @@ module.exports = {
                 matriculas: matriculas.map(matriculas => matriculas.toJSON())
             });
         });
-
     },
-    async getEditMatricula( req, res){
-
-        console.log("Entrou no get");
-        await Matriculas.findOne({
-            id: req.params.id
-        }).then((matriculas) => {
-
+    async getEditMatricula(req, res){
+        await db.Matriculas.findOne({id: req.params.id}).then((matriculas) => {
             res.render('administrador/matriculaEditAdm', {
                 matriculas: matriculas.toJSON()
             });
@@ -138,10 +140,8 @@ module.exports = {
             rg: req.body.rg,
             bairro:  req.body.bairro,
             endereco: req.body.endereco,
-            fone: req.body. fone,
-            comprovante_res: req.body.comprovante_res,
-            status:  req.body.status
-
+            fone: req.body.fone,
+            status: req.body.status
         })
         res. redirect('/home');
     }
