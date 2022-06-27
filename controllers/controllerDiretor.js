@@ -5,11 +5,11 @@ const Diretor = require('../models_postgres/diretor');
 const VagasCreche = require('../models_postgres/vagasCreche');
 const { VagasCreches } = require('../config/db_sequelize');
 
-/*db.sequelize.sync({
+db.sequelize.sync({
     force: true
 }).then(() => {
     console.log('{ force: true }');
-});*/
+});
 
 module.exports = {
     async getLogout(req, res) {
@@ -76,6 +76,7 @@ module.exports = {
 
     async postCreateVagas(req, res) {
         db.VagasCreches.create({
+            nomeCreche: req.body.nomeCreche,
             quantidadeVagas: req.body.quantidadeVagas,
             turno: req.body.turno,
             turma: req.body.turma,

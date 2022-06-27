@@ -81,6 +81,8 @@ route.get("/diretorCreate", controllerAdministrador.getCreateDiretor);
 route.post("/diretorCreate", controllerAdministrador.postCreateDiretor);
 route.get("/diretorEdit", controllerAdministrador.getEditDiretor);
 route.get("/matriculaListAdm", controllerAdministrador.getListVagasAdm);
+route.get("/relatorioCreches", controllerAdministrador.getRelatorioCreches);
+route.get("/relatorioVagasCreches", controllerAdministrador.getRelatorioVagasCreches);
 
 //Route Matricula
 route.get("/matriculaEditAdm/:id", controllerAdministrador.getEditMatricula);

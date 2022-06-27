@@ -72,6 +72,7 @@ module.exports = {
     async postCreateCreche(req, res) {
         db.Creches.create({
             nome_Creche: req.body.nome_Creche,
+            diretor_creche: req.body.diretor_creche,
             bairro: req.body.bairro,
             rua: req.body.rua,
             cidade: req.body.cidade,
@@ -91,6 +92,14 @@ module.exports = {
             });
         });
     },
+
+    async getRelatorioCreches(req, res) {
+        db.Creches.findAll().then(creches => {
+             res.render('administrador/relatorioCreches', {
+                 creches: creches.map(creches => creches.toJSON())
+             });
+         });
+     },
     
     async postCreateDiretor(req, res) {
         db.Diretor.create({

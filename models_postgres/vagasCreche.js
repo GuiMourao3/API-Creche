@@ -10,6 +10,10 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             allowNull: false
         },
+        nomeCreche: {
+            type: Sequelize.STRING,
+            allowNull: false
+        },
         turno: {
             type: Sequelize.STRING,
             allowNull: false

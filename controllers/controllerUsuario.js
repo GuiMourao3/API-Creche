@@ -7,9 +7,9 @@ const CadastroCrianca = require('../models_postgres/cadastroCrianca');
 const Matricula = require('../models_postgres/matriculas');
 const cadastroCrianca = require('../models_postgres/cadastroCrianca');
 
-db.sequelize.sync({ force: true }).then(() => {
+/* db.sequelize.sync({ force: true }).then(() => {
     console.log('{ force: true }');
-});
+}); */
 
 module.exports = {
     async getLogout(req, res) {
