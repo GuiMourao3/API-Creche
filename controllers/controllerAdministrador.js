@@ -4,6 +4,7 @@ const path  =  require('path');
 const Administrador = require('../models_postgres/administrador');
 const Matriculas = require ('../models_postgres/matriculas');
 const Creches = require ('../models_postgres/creches');
+const VagasCreche = require ('../models_postgres/vagasCreche');
 
 const { Matricula } = require('../config/db_sequelize');
 
@@ -100,6 +101,14 @@ module.exports = {
              });
          });
      },
+
+     async getRelatorioVagasCreches(req, res) {
+        db.VagasCreches.findAll().then(vagasCreches => {
+            res.render('administrador/relatorioVagasCreches', {
+                vagasCreches: vagasCreches.map(vagasCreches => vagasCreches.toJSON())
+            });
+        });
+    },
     
     async postCreateDiretor(req, res) {
         db.Diretor.create({
@@ -134,6 +143,12 @@ module.exports = {
             res.render('administrador/matriculaEditAdm', {
                 matriculas: matriculas.toJSON()
             });
+        });
+    },
+
+    async getRelatorioAlunosMatriculados(req, res) {
+        db.Matriculas.findAll().then(matriculas => {
+            res.render('administrador/relatorioAlunosMatriculados', { matriculas: matriculas.map(matriculas => matriculas.toJSON()) });
         });
     },
 

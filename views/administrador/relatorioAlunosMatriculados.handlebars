@@ -1,0 +1,33 @@
+<br><br><br>
+<table class="table table-hover" border="1px" style="width: 45%; text-align: center;">
+  <thead>
+    <h1>Relatório Alunos Matriculados</h1>
+    <br>
+    <tr>
+        <th scope="col"> Codigo</td>
+        <th scope="col"> Nome Crianca </td>
+        <th scope="col"> Nome Pai</td>
+        <th scope="col"> RG </td>
+        <th scope="col"> Bairro</td>
+        <th scope="col"> Endereco</td>
+        <th scope="col"> Fone</td>
+        <th scope="col"> Comprovante Residencia</td>
+        <th scope="col"> Status</td>
+        <th scope="col"> Data de Cadastro</td>
+    </tr>
+  </thead>
+    {{#each matriculas}}
+    <tr>
+        <td>{{id}}</td>
+        <td  scope="row">{{nome}}</td>
+        <td>{{nome_pai}}</td>
+        <td>{{rg}}</td>
+        <td>{{bairro}}</td>
+        <td>{{endereco}}</td>
+        <td>{{fone}}</td>
+        <td> <image width="50px" heigth="50px"  src="../uploads/{{comprovante_res}}.png"></td>
+        <td>{{status}}</td>
+        <td>{{createdAt}}</td>
+    </tr>
+    {{/each}}
+</table>

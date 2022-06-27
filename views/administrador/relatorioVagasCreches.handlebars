@@ -1,0 +1,21 @@
+<br><br>
+<table class="table table-hover" border="1px" style="width: 45%; text-align: center;">
+    <h1>Relatório de Vagas das Creches</h1>
+    <br>
+  <thead>
+    <tr>
+      <th scope="col">Nome da Creche</th>
+      <th scope="col">Quantidade de Vagas</th>
+      <th scope="col">Turno</th>
+      <th scope="col">Turma</th>
+    </tr>
+  </thead>
+    {{#each vagasCreches}}
+    <tr>
+        <td>{{nomeCreche}}</td>
+        <td>{{quantidadeVagas}}</td>
+        <td>{{turno}}</td>
+        <td>{{turma}}</td>
+    </tr>
+    {{/each}}
+</table>
