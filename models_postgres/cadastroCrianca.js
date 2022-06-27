@@ -1,4 +1,5 @@
 const Usuario  = require('./usuario');
+
 module.exports = (sequelize, Sequelize) => {
     const CadastroCrianca = sequelize.define('cadastrocrianca', {
         id: {
@@ -27,17 +28,6 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
-      
-        /*id_pai: {
-            type: Sequelize.INTEGER,
-            reference: {model: 'usuario', key: 'id'}
-        }*/
     });
-
-    CadastroCrianca.associate = function(models) {
-        CadastroCrianca.belongsTo(models.Usuarios, {foreignKey: 'id_pai', as: 'id'})
-      };
-    
     return CadastroCrianca;
-
 }

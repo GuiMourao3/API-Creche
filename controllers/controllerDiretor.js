@@ -3,9 +3,7 @@ const db = require('../config/db_sequelize');
 const path = require('path');
 const Diretor = require('../models_postgres/diretor');
 const VagasCreche = require('../models_postgres/vagasCreche');
-const {
-    VagasCreches
-} = require('../config/db_sequelize');
+const { VagasCreches } = require('../config/db_sequelize');
 
 /*db.sequelize.sync({
     force: true
@@ -20,14 +18,9 @@ module.exports = {
     },
 
     async postLogin(req, res) {
-        db.Diretor.findAll({
-            where: {
-                login: req.body.login,
-                senha: req.body.senha
-            }
-        }).then(diretor => {
+        db.Diretor.findAll({ where: { loginDiretor: req.body.loginDiretor, senhaDiretor: req.body.senhaDiretor } }).then(diretor => {
             if (diretor.length > 0) {
-                req.session.login = req.body.login;
+                req.session.login = req.body.loginDiretor;
                 res.redirect('/home');
             } else {
                 res.redirect('/');
@@ -58,6 +51,7 @@ module.exports = {
             }
         });
     },
+
     async postRecuperarSenha(req, res) {
         db.Diretor.findAll({
             where: {
@@ -75,6 +69,7 @@ module.exports = {
             }
         });
     },
+
     async getCreateVagas(req, res) {
         res.render('diretor/vagasCreate');
     },
@@ -108,13 +103,11 @@ module.exports = {
     },
 
     async postEditVagas(req, res) {
-  
         db.VagasCreches.update(req.body, {
               where: {
                 id: req.body.id
               }
             },{
-              
                 quantidadeVagas:req.body.quantidadeVagas,
                  turno: req.body.turno,
                  turma: req.body.turma,
@@ -123,23 +116,6 @@ module.exports = {
             res.redirect('/home');
     },
 
-    /*
-        async getCreate(req, res) {
-            res.render('diretor/diretorCreate');
-        },
-
-        async postCreate(req, res) {
-            db.Diretor.create({
-                login: req.body.login,
-                senha: req.body.senha,
-                pergunta_secreta: req.body.pergunta,
-                resposta_pergunta: req.body.resposta,
-                turma: req.body.turma,
-                turno: req.body.turno
-            });
-            res.redirect('/home');
-        },
-        */
     async getList(req, res) {
         db.Usuario.findAll().then(usuario => {
             res.render('usuario/usuarioList', {
@@ -164,31 +140,26 @@ module.exports = {
             senha: req.params.senha,
             pergunta: req.params.pergunta,
             resposta: req.params.resposta,
-
         }, {
             where: {
-
                 id: req.params.id,
             },
         });
-        db.Usuario.findByPK(req.prams.id).the((result) => res.json(result));
-
     },
 
     async getAlert(req, res) {
-
         res.render('usuario/alertaDelete', {
             id: req.params.id
         });
 
     },
+
     async getDelete(req, res) {
         db.Usuario.destroy({
             where: {
                 id: req.params.id
             }
         });
-
         res.redirect('/usuarioList');
     }
 }

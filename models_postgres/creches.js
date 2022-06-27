@@ -14,7 +14,6 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
-        
         rua: {
             type: Sequelize.STRING,
             allowNull: false

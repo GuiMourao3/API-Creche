@@ -23,9 +23,5 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false
         }
     });
-
-    Usuario.associate = function(models) {
-        Usuario.hasMany(models.CadastroCrianca, {as: 'id_pai'})
-      };
     return Usuario;
 }

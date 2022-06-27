@@ -2,11 +2,10 @@ const Sequelize = require('sequelize');
 const db = require('../config/db_sequelize');
 const { redirect } = require('express/lib/response');
 const  path  =  require('path');
-
 const Usuario = require('../models_postgres/usuario');
 const CadastroCrianca = require('../models_postgres/cadastroCrianca');
 const Matricula = require('../models_postgres/matriculas');
-
+const cadastroCrianca = require('../models_postgres/cadastroCrianca');
 
 db.sequelize.sync({ force: true }).then(() => {
     console.log('{ force: true }');
@@ -17,20 +16,17 @@ module.exports = {
         req.session.destroy();
         res.redirect('/');
     },
-    async postLogin(req, res) {
 
+    async postLogin(req, res) {
         db.Usuario.findAll({ where: { login: req.body.login, senha: req.body.senha } }).then(usuario => {
             if (usuario.length > 0) {
-
                 req.session.login = req.body.login;
                 res.redirect('/home');
             } else {
-
                 res.redirect('/');
             }
         });
     },
-
 
     async getLogin(req, res) {
         res.render('usuario/login', { layout: 'noMenu.handlebars' });
@@ -45,6 +41,7 @@ module.exports = {
             }
         });
     },
+
     async postRecuperarSenha(req, res) {
         db.Usuario.findAll({ where: { login: req.body.login, resposta_pergunta: req.body.resposta } }).then(usuario => {
             if (usuario.length > 0) {
@@ -54,9 +51,11 @@ module.exports = {
             }
         });
     },
+
     async getCreate(req, res) {
         res.render('usuario/usuarioCreate');
     },
+
     async postCreate(req, res) {
         db.Usuario.create({
             login: req.body.login,
@@ -66,23 +65,22 @@ module.exports = {
         });
         res.redirect('/home');
     },
+
     async getCreateCrianca(req, res) {
         res.render('usuario/cadastrarCrianca');
     },
 
     async postCreateCrianca(req, res) {
-        console.log("id pai "+ req.U);
-       db.CadastroCrianca.create({
+        db.CadastroCrianca.create({
             nome: req.body.nome,
             nome_pai: req.body.nome_pai,
             rg: req.body.rg,
             bairro: req.body.bairro,
             endereco: req.body.endereco,
-            
         });
         res.redirect('/home');
     },
-    //----
+
     async getCreateMatricula(req, res) {
         res.render('usuario/matriculaCreate');
     },
@@ -91,7 +89,6 @@ module.exports = {
         await db.CadastroCrianca.findOne({
             id: req.body.id
         }).then((cadastroCrianca) => {
-
             res.render('usuario/matriculaCreate', {
                 cadastroCrianca: cadastroCrianca.toJSON()
             });
@@ -109,9 +106,9 @@ module.exports = {
             fone: req.body.fone,
             comprovante_res: req.body.nome,
         });
-      
         res.redirect('/home');
     },
+
     async getList(req, res) {
         db.Matriculas.findAll().then(matriculas => {
             res.render('usuario/usuarioList', { matriculas: matriculas.map(matriculas => matriculas.toJSON()) });
@@ -146,25 +143,20 @@ module.exports = {
             senha: req.params.senha,
             pergunta: req.params.pergunta,
             resposta: req.params.resposta,
-
         }, {
             where: {
-
                 id: req.params.id,
             },
         });
-        db.Usuario.findByPK(req.prams.id).the((result) => res.json(result));
-
     },
 
     async getAlert(req, res) {
-
         res.render('usuario/alertaDelete', { id: req.params.id });
 
     },
+
     async getDelete(req, res) {
         db.Usuario.destroy({ where: { id: req.params.id } });
-
         res.redirect('/usuarioList');
     }
 }

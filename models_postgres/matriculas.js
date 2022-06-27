@@ -1,6 +1,5 @@
 const CadastroCrianca = require("./cadastroCrianca");
 
-
 module.exports = (sequelize, Sequelize) => {
     const Matriculas = sequelize.define('matriculas', {
         id: {
@@ -52,11 +51,6 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             reference: {model: 'CadastroCrianca', key: 'id'}
         }
-       
-    },
-   
-
-    );
-
+    });
     return Matriculas;
 }
