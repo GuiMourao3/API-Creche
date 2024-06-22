@@ -1,10 +1,10 @@
 const Sequelize = require('sequelize');
 const db = require('../config/db_sequelize');
-const path  =  require('path');
+const path = require('path');
 const Administrador = require('../models_postgres/administrador');
-const Matriculas = require ('../models_postgres/matriculas');
-const Creches = require ('../models_postgres/creches');
-const VagasCreche = require ('../models_postgres/vagasCreche');
+const Matriculas = require('../models_postgres/matriculas');
+const Creches = require('../models_postgres/creches');
+const VagasCreche = require('../models_postgres/vagasCreche');
 
 const { Matricula } = require('../config/db_sequelize');
 
@@ -66,10 +66,10 @@ module.exports = {
         res.redirect('/home');
     },
 
-    async getCreateCreche(req, res){
+    async getCreateCreche(req, res) {
         res.render('administrador/crecheCreate');
     },
-    
+
     async postCreateCreche(req, res) {
         db.Creches.create({
             nome_Creche: req.body.nome_Creche,
@@ -81,13 +81,13 @@ module.exports = {
         });
         res.redirect('/home');
     },
-    
+
     async getCreateDiretor(req, res) {
         res.render('administrador/diretorCreate');
     },
 
     async getListCreche(req, res) {
-       db.Creches.findAll().then(creches => {
+        db.Creches.findAll().then(creches => {
             res.render('administrador/crecheList', {
                 creches: creches.map(creches => creches.toJSON())
             });
@@ -96,20 +96,20 @@ module.exports = {
 
     async getRelatorioCreches(req, res) {
         db.Creches.findAll().then(creches => {
-             res.render('administrador/relatorioCreches', {
-                 creches: creches.map(creches => creches.toJSON())
-             });
-         });
-     },
+            res.render('administrador/relatorioCreches', {
+                creches: creches.map(creches => creches.toJSON())
+            });
+        });
+    },
 
-     async getRelatorioVagasCreches(req, res) {
+    async getRelatorioVagasCreches(req, res) {
         db.VagasCreches.findAll().then(vagasCreches => {
             res.render('administrador/relatorioVagasCreches', {
                 vagasCreches: vagasCreches.map(vagasCreches => vagasCreches.toJSON())
             });
         });
     },
-    
+
     async postCreateDiretor(req, res) {
         db.Diretor.create({
             loginDiretor: req.body.loginDiretor,
@@ -130,7 +130,7 @@ module.exports = {
         });
     },
 
-    async getListVagasAdm (req, res){
+    async getListVagasAdm(req, res) {
         db.Matriculas.findAll().then(matriculas => {
             res.render('administrador/matriculaListAdm', {
                 matriculas: matriculas.map(matriculas => matriculas.toJSON())
@@ -138,8 +138,8 @@ module.exports = {
         });
     },
 
-    async getEditMatricula(req, res){
-        await db.Matriculas.findOne({id: req.params.id}).then((matriculas) => {
+    async getEditMatricula(req, res) {
+        await db.Matriculas.findOne({ id: req.params.id }).then((matriculas) => {
             res.render('administrador/matriculaEditAdm', {
                 matriculas: matriculas.toJSON()
             });
@@ -152,18 +152,18 @@ module.exports = {
         });
     },
 
-    async postEditMatricula(req, res){
+    async postEditMatricula(req, res) {
         db.Matriculas.update(req.body, {
-             where: { id: req.body.id }
-        },{
-            nome:req.body.nome,
+            where: { id: req.body.id }
+        }, {
+            nome: req.body.nome,
             nome_pai: req.body.nome_pai,
             rg: req.body.rg,
-            bairro:  req.body.bairro,
+            bairro: req.body.bairro,
             endereco: req.body.endereco,
             fone: req.body.fone,
             status: req.body.status
         })
-        res. redirect('/home');
+        res.redirect('/home');
     }
 }

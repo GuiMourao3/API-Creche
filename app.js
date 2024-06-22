@@ -1,13 +1,13 @@
 const routes = require('./routes/route');
 const handlebars = require('express-handlebars');
-const  express  =  require('express');
+const express = require('express');
 var session = require('express-session');
 const middlewares = require('./middlewares/middlewares');
 const unirest = require("unirest");
-const  app  =  express();
+const app = express();
 var receitas = unirest.get('http://localhost:8081/receitas');
-const multer = require ('multer');
-const upload = multer ( {dest:'imagens/'});
+const multer = require('multer');
+const upload = multer({ dest: 'imagens/' });
 
 const path = require('path');
 const { CadastroCrianca, Usuario } = require('./config/db_sequelize');
@@ -22,8 +22,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
 
-app.use(    express.urlencoded({       extended:  true     }))
+app.use(express.urlencoded({ extended: true }))
 
-app.listen(8081,  function() {    
+app.listen(3000, function () {
     console.log("Servidor online")
 });
